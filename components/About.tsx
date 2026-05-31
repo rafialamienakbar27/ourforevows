@@ -2,11 +2,21 @@
 import { motion } from "framer-motion";
 import { useInView } from "./useInView";
 
-const stats = [
-  { num: "200+", label: "Pasangan Bahagia" },
-  { num: "5+",   label: "Tahun Pengalaman" },
-  { num: "15+",  label: "Kota di Indonesia" },
-];
+type AboutData = {
+  paragraph1?: string;
+  paragraph2?: string;
+  stat1Num?: string; stat1Label?: string;
+  stat2Num?: string; stat2Label?: string;
+  stat3Num?: string; stat3Label?: string;
+};
+
+const defaults: AboutData = {
+  paragraph1: "Our Forevows lahir dari kecintaan mendalam terhadap cerita cinta yang otentik. Kami bukan sekadar content creator — kami adalah pencerita visual yang memahami bahwa di balik setiap pernikahan, ada ribuan detail kecil yang membuat hari itu menjadi milik Anda sepenuhnya.",
+  paragraph2: "Dengan pendekatan yang hangat, intim, dan penuh perhatian, kami hadir untuk memastikan setiap tawa, setiap air mata bahagia, dan setiap momen berharga terekam dalam konten yang akan Anda kenang selamanya.",
+  stat1Num: "200+", stat1Label: "Pasangan Bahagia",
+  stat2Num: "5+",   stat2Label: "Tahun Pengalaman",
+  stat3Num: "15+",  stat3Label: "Kota di Indonesia",
+};
 
 function Reveal({ children, delay = 0, className = "" }: { children: React.ReactNode; delay?: number; className?: string }) {
   const { ref, inView } = useInView();
@@ -23,7 +33,14 @@ function Reveal({ children, delay = 0, className = "" }: { children: React.React
   );
 }
 
-export default function About() {
+export default function About({ data }: { data?: AboutData }) {
+  const d = { ...defaults, ...data };
+  const stats = [
+    { num: d.stat1Num!, label: d.stat1Label! },
+    { num: d.stat2Num!, label: d.stat2Label! },
+    { num: d.stat3Num!, label: d.stat3Label! },
+  ];
+
   return (
     <section id="about" className="py-28 px-[4vw] bg-[var(--cream)]">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
@@ -31,7 +48,6 @@ export default function About() {
         {/* Image collage */}
         <Reveal>
           <div className="relative h-[520px] md:h-[580px]">
-            {/* Main image */}
             <div className="absolute top-0 left-0 w-3/4 h-[88%] bg-[var(--sage)] rounded overflow-hidden">
               <svg viewBox="0 0 400 500" className="w-full h-full" fill="none">
                 <rect width="400" height="500" fill="#D4DFD0"/>
@@ -44,7 +60,6 @@ export default function About() {
                 <text x="200" y="460" textAnchor="middle" fontFamily="Cormorant Garamond" fontSize="13" fill="#2D6A2D" opacity="0.5">Our Forevows</text>
               </svg>
             </div>
-            {/* Accent image */}
             <div className="absolute bottom-0 right-0 w-[47%] h-[54%] bg-[var(--sage-light)] rounded overflow-hidden border-[6px] border-[var(--cream)]">
               <svg viewBox="0 0 250 300" className="w-full h-full" fill="none">
                 <rect width="250" height="300" fill="#E0E8DB"/>
@@ -64,14 +79,9 @@ export default function About() {
           <h2 className="font-display text-[clamp(1.9rem,3.5vw,2.8rem)] font-light leading-[1.2] text-[var(--text-dark)] mb-6 max-w-[520px]">
             Kami percaya setiap kisah cinta layak diabadikan dengan indah
           </h2>
-          <p className="text-[0.93rem] font-light text-[var(--text-mid)] leading-[1.9] mb-4">
-            Our Forevows lahir dari kecintaan mendalam terhadap cerita cinta yang otentik. Kami bukan sekadar content creator — kami adalah pencerita visual yang memahami bahwa di balik setiap pernikahan, ada ribuan detail kecil yang membuat hari itu menjadi milik Anda sepenuhnya.
-          </p>
-          <p className="text-[0.93rem] font-light text-[var(--text-mid)] leading-[1.9] mb-10">
-            Dengan pendekatan yang hangat, intim, dan penuh perhatian, kami hadir untuk memastikan setiap tawa, setiap air mata bahagia, dan setiap momen berharga terekam dalam konten yang akan Anda kenang selamanya.
-          </p>
+          <p className="text-[0.93rem] font-light text-[var(--text-mid)] leading-[1.9] mb-4">{d.paragraph1}</p>
+          <p className="text-[0.93rem] font-light text-[var(--text-mid)] leading-[1.9] mb-10">{d.paragraph2}</p>
 
-          {/* Stats */}
           <div className="flex gap-8 pt-8 border-t border-[var(--beige)] flex-wrap">
             {stats.map((s) => (
               <div key={s.label}>

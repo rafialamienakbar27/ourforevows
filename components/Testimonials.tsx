@@ -3,18 +3,31 @@ import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "./useInView";
 
-const testimonials = [
+type Testimonial = {
+  _id?: string;
+  initials: string;
+  name: string;
+  event: string;
+  text: string;
+};
+
+const defaultTestimonials: Testimonial[] = [
   { initials: "R&D", name: "Rina & Dimas",  event: "Bali Wedding, 2024",       text: "Our Forevows benar-benar memahami apa yang kami inginkan. Hasilnya jauh melebihi ekspektasi — setiap frame terasa seperti sebuah lukisan. Kami menangis bahagia saat menonton film pernikahan kami untuk pertama kali." },
   { initials: "P&R", name: "Putri & Reza",  event: "Yogyakarta Wedding, 2024", text: "Profesional, kreatif, dan sangat detail. Tim Our Forevows membuat kami merasa nyaman dari awal hingga akhir. Social content yang mereka buat untuk pernikahan kami mendapat ribuan likes!" },
   { initials: "S&A", name: "Sarah & Arief", event: "Lombok Pre-Wedding, 2024", text: "Pre-wedding session kami di Lombok menjadi kenangan yang tak terlupakan berkat Our Forevows. Mereka tahu angle terbaik, cahaya yang sempurna, dan cara membuat kami merasa alami di depan kamera." },
   { initials: "D&H", name: "Dewi & Hendri", event: "Jakarta Wedding, 2023",    text: "Kami sangat terkesan dengan highlight reel yang dibuat. Dalam 4 menit, seluruh kebahagiaan hari pernikahan kami terangkum dengan begitu indah. Ini akan kami simpan untuk selamanya." },
 ];
 
-export default function Testimonials() {
+export default function Testimonials({ data }: { data?: Testimonial[] }) {
+  const testimonials = data && data.length > 0 ? data : defaultTestimonials;
   const [cur, setCur] = useState(0);
   const { ref, inView } = useInView();
 
-  const next = useCallback(() => setCur(c => (c + 1) % testimonials.length), []);
+  const next = useCallback(() => setCur(c => (c + 1) % testimonials.length), [testimonials.length]);
+
+  useEffect(() => {
+    setCur(0);
+  }, [testimonials]);
 
   useEffect(() => {
     const t = setInterval(next, 5000);
@@ -64,7 +77,6 @@ export default function Testimonials() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Dots */}
         <div className="flex gap-2.5 mt-8">
           {testimonials.map((_, i) => (
             <button
