@@ -1,11 +1,6 @@
 'use server'
 
-import { Resend } from 'resend'
-
-const resend = new Resend(process.env.RESEND_API_KEY)
-const adminEmail = process.env.ADMIN_EMAIL ?? 'admin@ourforevows.com'
-
-type BookingState = {
+export type BookingState = {
   success: boolean;
   error?: string;
 }
@@ -14,22 +9,31 @@ export async function submitBooking(
   _prevState: BookingState,
   formData: FormData
 ): Promise<BookingState> {
-  const data = {
-    namaMempelai: formData.get('namaMempelai') as string,
-    namaPasangan: formData.get('namaPasangan') as string,
-    email: formData.get('email') as string,
-    whatsapp: formData.get('whatsapp') as string,
-    tanggalNikah: formData.get('tanggalNikah') as string,
-    layanan: formData.get('layanan') as string,
-    lokasi: formData.get('lokasi') as string,
-    cerita: formData.get('cerita') as string,
-  }
+  try {
+    const data = {
+      namaMempelai: formData.get('namaMempelai') as string,
+      namaPasangan: formData.get('namaPasangan') as string,
+      email: formData.get('email') as string,
+      whatsapp: formData.get('whatsapp') as string,
+      tanggalNikah: formData.get('tanggalNikah') as string,
+      layanan: formData.get('layanan') as string,
+      lokasi: formData.get('lokasi') as string,
+      cerita: formData.get('cerita') as string,
+    }
 
-  if (!data.namaMempelai || !data.email || !data.whatsapp) {
-    return { success: false, error: 'Mohon lengkapi field yang wajib diisi.' }
-  }
+    if (!data.namaMempelai || !data.email || !data.whatsapp) {
+      return { success: false, error: 'Mohon lengkapi field yang wajib diisi.' }
+    }
 
-  const emailBody = `
+    const apiKey = process.env.RESEND_API_KEY
+    const adminEmail = process.env.ADMIN_EMAIL ?? 'rafialamienakbar27@gmail.com'
+
+    if (!apiKey) {
+      console.log('[Booking] RESEND_API_KEY belum dikonfigurasi:', JSON.stringify(data))
+      return { success: true }
+    }
+
+    const emailBody = `
 Halo Our Forevows Team!
 
 Ada booking baru masuk dari website:
@@ -56,24 +60,26 @@ ${data.cerita}
 
 ━━━━━━━━━━━━━━━━━━━━━━
 Segera follow-up via WhatsApp: ${data.whatsapp}
-  `.trim()
+    `.trim()
 
-  try {
-    if (!process.env.RESEND_API_KEY) {
-      console.log('[Booking - DEV MODE] Form data received:', data)
-      return { success: true }
-    }
+    const { Resend } = await import('resend')
+    const resend = new Resend(apiKey)
 
-    await resend.emails.send({
+    const result = await resend.emails.send({
       from: 'Our Forevows <onboarding@resend.dev>',
       to: [adminEmail],
       subject: `🌿 Booking Baru: ${data.namaMempelai} & ${data.namaPasangan} — ${data.tanggalNikah}`,
       text: emailBody,
     })
 
+    if (result.error) {
+      console.error('Resend error:', result.error)
+      return { success: false, error: 'Gagal mengirim email. Silakan hubungi kami via WhatsApp.' }
+    }
+
     return { success: true }
   } catch (err) {
-    console.error('Email send error:', err)
-    return { success: false, error: 'Gagal mengirim pesan. Silakan coba lagi atau hubungi kami via WhatsApp.' }
+    console.error('Booking submission error:', err)
+    return { success: false, error: 'Terjadi kesalahan. Silakan coba lagi atau hubungi kami via WhatsApp.' }
   }
 }
