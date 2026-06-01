@@ -1,12 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
 const links = [
-  { href: "#about",        label: "About" },
-  { href: "#services",     label: "Services" },
-  { href: "#portfolio",    label: "Portfolio" },
-  { href: "#testimonials", label: "Stories" },
+  { href: "#about",        label: "About",    type: "anchor" },
+  { href: "#services",     label: "Services", type: "anchor" },
+  { href: "#portfolio",    label: "Portfolio",type: "anchor" },
+  { href: "#testimonials", label: "Stories",  type: "anchor" },
+  { href: "/schedule",     label: "Schedule", type: "page" },
 ];
 
 export default function Navbar() {
@@ -23,8 +25,19 @@ export default function Navbar() {
     document.body.style.overflow = menuOpen ? "hidden" : "";
   }, [menuOpen]);
 
-  const handleNav = (href: string) => {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const handleNav = (href: string, type: string) => {
     setMenuOpen(false);
+    if (type === "page") {
+      router.push(href);
+      return;
+    }
+    if (pathname !== "/") {
+      router.push(`/${href}`);
+      return;
+    }
     setTimeout(() => {
       const el = document.querySelector(href);
       if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -43,7 +56,7 @@ export default function Navbar() {
           }`}
       >
         {/* Logo */}
-        <button onClick={() => handleNav("#hero")} className="font-display text-2xl flex items-baseline gap-1">
+        <button onClick={() => handleNav("#hero", "anchor")} className="font-display text-2xl flex items-baseline gap-1">
           <span className={`font-medium transition-colors duration-500 ${atTop ? "text-white" : "text-[var(--text-dark)]"}`}>Our</span>
           <span className={`italic font-light transition-colors duration-500 ${atTop ? "text-[var(--green-light)]" : "text-[var(--green-main)]"}`}>Forevows</span>
         </button>
@@ -53,7 +66,7 @@ export default function Navbar() {
           {links.map((l) => (
             <li key={l.href}>
               <button
-                onClick={() => handleNav(l.href)}
+                onClick={() => handleNav(l.href, l.type)}
                 className={`text-[0.75rem] tracking-widest uppercase transition-colors duration-300 relative group
                   ${atTop
                     ? "text-white/80 hover:text-white"
@@ -68,7 +81,7 @@ export default function Navbar() {
           ))}
           <li>
             <button
-              onClick={() => handleNav("#contact")}
+              onClick={() => handleNav("#contact", "anchor")}
               className={`text-[0.73rem] tracking-widest uppercase px-5 py-2.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg
                 ${atTop
                   ? "text-[var(--green-deep)] bg-white hover:bg-[var(--green-light)] hover:text-white hover:shadow-black/20"
@@ -96,10 +109,10 @@ export default function Navbar() {
           ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
         <ul className="flex flex-col items-center gap-6 text-center">
-          {[...links, { href: "#contact", label: "Book Us" }].map((l) => (
+          {[...links, { href: "#contact", label: "Book Us", type: "anchor" }].map((l) => (
             <li key={l.href}>
               <button
-                onClick={() => handleNav(l.href)}
+                onClick={() => handleNav(l.href, l.type)}
                 className="font-display text-4xl font-light text-[var(--text-dark)] hover:text-[var(--green-main)] transition-colors"
               >
                 {l.label}
