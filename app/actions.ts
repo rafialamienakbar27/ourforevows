@@ -45,7 +45,7 @@ export async function submitBooking(
       try {
         const { sanityFetchFresh } = await import('@/lib/sanity')
         affiliate = await sanityFetchFresh<AffiliateResult>(
-          `*[_type == "affiliate" && isActive == true && upper(code) == $code][0] {
+          `*[_type == "affiliate" && isActive != false && code == $code][0] {
             _id, name, code, email, whatsapp, commissionRate
           }`,
           { code: data.kodeReferral }
