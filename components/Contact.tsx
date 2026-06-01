@@ -17,14 +17,14 @@ type SiteSettings = {
   instagram?: string;
 };
 
-const initialState = { success: false, error: undefined as string | undefined };
+const initialState = { success: false, error: undefined as string | undefined, affiliateName: undefined as string | undefined };
 
 export default function Contact({ settings }: { settings?: SiteSettings }) {
   const [state, action, isPending] = useActionState(submitBooking, initialState);
   const formRef = useRef<HTMLFormElement>(null);
   const { ref, inView } = useInView();
 
-  const wa = settings?.whatsapp ?? "0882001901100";
+  const wa = settings?.whatsapp ?? "+62882001901100";
   const email = settings?.email ?? "hello@ourforevows.com";
   const ig = settings?.instagram ?? "ourforevows";
   const waLink = `https://wa.me/${wa.replace(/\D/g, "")}`;
@@ -113,8 +113,17 @@ export default function Contact({ settings }: { settings?: SiteSettings }) {
                 Terima kasih telah menghubungi Our Forevows.<br />
                 Kami akan segera merespons dalam 1×24 jam.
               </p>
+              {state.affiliateName && (
+                <div className="inline-flex items-center gap-2 bg-[var(--sage-light)] rounded-full px-5 py-2.5 text-[0.78rem] text-[var(--green-deep)] mb-4">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="w-4 h-4 flex-shrink-0">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                  Referral dari <strong className="ml-1">{state.affiliateName}</strong> berhasil dicatat ✓
+                </div>
+              )}
               <a href={waLink} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[0.8rem] text-[var(--green-main)] hover:underline">
+                className="block text-[0.8rem] text-[var(--green-main)] hover:underline">
                 Atau langsung WhatsApp: <strong>{wa}</strong>
               </a>
             </div>
@@ -165,6 +174,25 @@ export default function Contact({ settings }: { settings?: SiteSettings }) {
                     placeholder="Lokasi, tema, jumlah tamu, keinginan khusus..."
                     className="text-[0.88rem] text-[var(--text-dark)] bg-[var(--sage-light)] border border-transparent rounded-xl px-4 py-3 outline-none focus:border-[var(--green-main)] focus:bg-white transition-all resize-none placeholder:text-[var(--text-light)]"
                   />
+                </div>
+
+                {/* Referral Code */}
+                <div className="flex flex-col gap-1.5 border-t border-[var(--beige)] pt-4">
+                  <label className="text-[0.67rem] tracking-[0.15em] uppercase text-[var(--text-light)] font-medium flex items-center gap-1.5">
+                    Kode Referral
+                    <span className="text-[0.6rem] normal-case tracking-normal text-[var(--text-light)]/60 font-normal">(opsional)</span>
+                  </label>
+                  <input
+                    name="kodeReferral"
+                    type="text"
+                    placeholder="Masukkan kode referral jika ada..."
+                    className="text-[0.88rem] text-[var(--text-dark)] bg-[var(--sage-light)] border border-transparent rounded-xl px-4 py-3 outline-none focus:border-[var(--green-main)] focus:bg-white transition-all placeholder:text-[var(--text-light)] uppercase"
+                    style={{ textTransform: 'uppercase' }}
+                    maxLength={20}
+                  />
+                  <p className="text-[0.65rem] text-[var(--text-light)]/70 leading-relaxed">
+                    Punya kode dari teman atau partner? Masukkan di sini — mereka akan dapat komisi otomatis.
+                  </p>
                 </div>
 
                 <button type="submit" disabled={isPending}

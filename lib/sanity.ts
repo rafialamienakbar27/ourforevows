@@ -21,6 +21,17 @@ export async function sanityFetch<T>(query: string): Promise<T | null> {
   }
 }
 
+export async function sanityFetchFresh<T>(query: string, params?: Record<string, unknown>): Promise<T | null> {
+  if (!projectId) return null
+  try {
+    const { createClient: cc } = await import('@sanity/client')
+    const client = cc({ projectId, dataset, apiVersion: '2024-01-01', useCdn: false })
+    return await client.fetch<T>(query, params ?? {})
+  } catch {
+    return null
+  }
+}
+
 export const queries = {
   portfolio: `*[_type == "portfolio"] | order(order asc) {
     _id, title, coupleName, location, category, mediaType, videoUrl, tag,

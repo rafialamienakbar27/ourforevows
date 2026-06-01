@@ -21,6 +21,7 @@ export default defineConfig({
             S.documentTypeListItem('portfolio').title('Portfolio & Video'),
             S.documentTypeListItem('testimonial').title('Testimoni'),
             S.documentTypeListItem('service').title('Layanan'),
+            S.documentTypeListItem('affiliate').title('Affiliate'),
             S.listItem()
               .title('Pengaturan Website')
               .child(
