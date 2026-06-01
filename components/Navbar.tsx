@@ -10,8 +10,8 @@ const links = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -31,16 +31,21 @@ export default function Navbar() {
     }, 100);
   };
 
+  const atTop = !scrolled;
+
   return (
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[4vw] transition-all duration-500
-          ${scrolled ? "py-4 bg-[#F0EDEA]/90 backdrop-blur-md shadow-sm" : "py-6 bg-transparent"}`}
+          ${scrolled
+            ? "py-4 bg-[#F0EDEA]/92 backdrop-blur-md shadow-sm"
+            : "py-6 bg-transparent"
+          }`}
       >
         {/* Logo */}
         <button onClick={() => handleNav("#hero")} className="font-display text-2xl flex items-baseline gap-1">
-          <span className="font-medium text-[var(--text-dark)]">Our</span>
-          <span className="italic font-light text-[var(--green-main)]">Forevows</span>
+          <span className={`font-medium transition-colors duration-500 ${atTop ? "text-white" : "text-[var(--text-dark)]"}`}>Our</span>
+          <span className={`italic font-light transition-colors duration-500 ${atTop ? "text-[var(--green-light)]" : "text-[var(--green-main)]"}`}>Forevows</span>
         </button>
 
         {/* Desktop links */}
@@ -49,17 +54,26 @@ export default function Navbar() {
             <li key={l.href}>
               <button
                 onClick={() => handleNav(l.href)}
-                className="text-[0.75rem] tracking-widest uppercase text-[var(--text-mid)] hover:text-[var(--green-main)] transition-colors relative group"
+                className={`text-[0.75rem] tracking-widest uppercase transition-colors duration-300 relative group
+                  ${atTop
+                    ? "text-white/80 hover:text-white"
+                    : "text-[var(--text-mid)] hover:text-[var(--green-main)]"
+                  }`}
               >
                 {l.label}
-                <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-[var(--green-main)] transition-all duration-300 group-hover:w-full" />
+                <span className={`absolute -bottom-0.5 left-0 h-px w-0 transition-all duration-300 group-hover:w-full
+                  ${atTop ? "bg-white" : "bg-[var(--green-main)]"}`} />
               </button>
             </li>
           ))}
           <li>
             <button
               onClick={() => handleNav("#contact")}
-              className="text-[0.73rem] tracking-widest uppercase text-white bg-[var(--green-main)] hover:bg-[var(--green-deep)] px-5 py-2.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-green-900/20"
+              className={`text-[0.73rem] tracking-widest uppercase px-5 py-2.5 rounded-full transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg
+                ${atTop
+                  ? "text-[var(--green-deep)] bg-white hover:bg-[var(--green-light)] hover:text-white hover:shadow-black/20"
+                  : "text-white bg-[var(--green-main)] hover:bg-[var(--green-deep)] hover:shadow-green-900/20"
+                }`}
             >
               Book Us
             </button>
@@ -68,7 +82,7 @@ export default function Navbar() {
 
         {/* Burger */}
         <button
-          className="md:hidden text-[var(--text-dark)]"
+          className={`md:hidden transition-colors duration-500 ${atTop ? "text-white" : "text-[var(--text-dark)]"}`}
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Menu"
         >
