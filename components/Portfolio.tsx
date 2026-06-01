@@ -29,12 +29,12 @@ const defaultItems: PortfolioItem[] = [
   {
     id: 2, cat: "pre",
     name: "Sarah & Arief", loc: "Lombok, 2024", tag: "Pre-Wedding",
-    coverImageUrl: "https://images.unsplash.com/photo-1529691560673-a2ac645c4d6d?w=800&q=85&auto=format&fit=crop",
+    coverImageUrl: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=85&auto=format&fit=crop",
   },
   {
     id: 3, cat: "social",
     name: "Putri & Reza", loc: "Yogyakarta, 2024", tag: "Social Content",
-    coverImageUrl: "https://images.unsplash.com/photo-1583939411023-14783179e581?w=800&q=85&auto=format&fit=crop",
+    coverImageUrl: "https://images.unsplash.com/photo-1469371670807-013ccf25f16a?w=800&q=85&auto=format&fit=crop",
   },
   {
     id: 4, cat: "film",

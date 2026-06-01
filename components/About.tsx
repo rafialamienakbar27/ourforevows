@@ -52,7 +52,7 @@ export default function About({ data }: { data?: AboutData }) {
             <div className="absolute top-0 left-0 w-3/4 h-[88%] rounded overflow-hidden shadow-2xl shadow-black/20">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1583939411023-14783179e581?w=900&q=85&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1525772764200-be829a350797?w=900&q=85&auto=format&fit=crop"
                 alt=""
                 aria-hidden="true"
                 className="w-full h-full object-cover object-center scale-105 hover:scale-100 transition-transform duration-700"
