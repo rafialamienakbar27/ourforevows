@@ -49,24 +49,34 @@ export default function About({ data }: { data?: AboutData }) {
         <Reveal>
           <div className="relative h-[520px] md:h-[580px]">
             {/* Main photo */}
-            <div className="absolute top-0 left-0 w-3/4 h-[88%] rounded overflow-hidden">
+            <div className="absolute top-0 left-0 w-3/4 h-[88%] rounded overflow-hidden shadow-2xl shadow-black/20">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900&q=85&auto=format&fit=crop"
-                alt="Wedding couple"
-                className="w-full h-full object-cover object-center"
+                src="https://images.unsplash.com/photo-1583939411023-14783179e581?w=900&q=85&auto=format&fit=crop"
+                alt=""
+                aria-hidden="true"
+                className="w-full h-full object-cover object-center scale-105 hover:scale-100 transition-transform duration-700"
               />
-              {/* Subtle green tint overlay */}
-              <div className="absolute inset-0 bg-[var(--green-deep)]/10" />
+              {/* Cinematic gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0d2a0d]/40 via-transparent to-transparent" />
             </div>
             {/* Accent photo */}
-            <div className="absolute bottom-0 right-0 w-[47%] h-[54%] rounded overflow-hidden border-[6px] border-[var(--cream)]">
+            <div className="absolute bottom-0 right-0 w-[47%] h-[54%] rounded overflow-hidden border-[6px] border-[var(--cream)] shadow-xl shadow-black/15">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://images.unsplash.com/photo-1537907510278-bf0e41e2cc40?w=600&q=85&auto=format&fit=crop"
-                alt="Wedding detail"
-                className="w-full h-full object-cover object-center"
+                src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=600&q=85&auto=format&fit=crop"
+                alt=""
+                aria-hidden="true"
+                className="w-full h-full object-cover object-center scale-105 hover:scale-100 transition-transform duration-700"
               />
+              {/* Subtle overlay */}
+              <div className="absolute inset-0 bg-[var(--green-deep)]/10" />
+            </div>
+            {/* Decorative label */}
+            <div className="absolute bottom-[56%] left-[72%] -translate-x-1/2 z-10">
+              <div className="bg-[var(--cream)] px-4 py-2 rounded-full shadow-lg border border-[var(--beige)]">
+                <p className="font-display text-[0.7rem] italic text-[var(--green-main)] whitespace-nowrap">Our Forevows ✦</p>
+              </div>
             </div>
           </div>
         </Reveal>
