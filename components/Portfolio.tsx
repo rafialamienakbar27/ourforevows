@@ -14,89 +14,122 @@ type PortfolioItem = {
   name: string;
   loc: string;
   tag: string;
-  span?: string;
-  bg?: string;
-  accent?: string;
+  featured?: boolean;
   mediaType?: "image" | "video";
   videoUrl?: string;
   coverImageUrl?: string;
 };
 
 const defaultItems: PortfolioItem[] = [
-  { id: 1, cat: "film",   name: "Rina & Dimas",  loc: "Bali, 2024",       tag: "Wedding Film",    span: "",           bg: "#D4DFD0", accent: "#2D6A2D", coverImageUrl: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=80&auto=format&fit=crop" },
-  { id: 2, cat: "pre",    name: "Sarah & Arief", loc: "Lombok, 2024",     tag: "Pre-Wedding",     span: "row-span-2", bg: "#E0E8DB", accent: "#2D6A2D", coverImageUrl: "https://images.unsplash.com/photo-1591604021695-0c69b7c05981?w=800&q=80&auto=format&fit=crop" },
-  { id: 3, cat: "social", name: "Putri & Reza",  loc: "Yogyakarta, 2024", tag: "Social Content",  span: "",           bg: "#C8D8C2", accent: "#1A4A1A", coverImageUrl: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80&auto=format&fit=crop" },
-  { id: 4, cat: "film",   name: "Dewi & Hendri", loc: "Jakarta, 2023",    tag: "Wedding Film",    span: "",           bg: "#BFD0B8", accent: "#2D6A2D", coverImageUrl: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80&auto=format&fit=crop" },
-  { id: 5, cat: "pre",    name: "Nadia & Fajar", loc: "Flores, 2024",     tag: "Pre-Wedding",     span: "col-span-2", bg: "#D4DFD0", accent: "#1A4A1A", coverImageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80&auto=format&fit=crop" },
+  {
+    id: 1, cat: "film", featured: true,
+    name: "Rina & Dimas", loc: "Bali, 2024", tag: "Wedding Film",
+    coverImageUrl: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=1200&q=85&auto=format&fit=crop",
+  },
+  {
+    id: 2, cat: "pre",
+    name: "Sarah & Arief", loc: "Lombok, 2024", tag: "Pre-Wedding",
+    coverImageUrl: "https://images.unsplash.com/photo-1529691560673-a2ac645c4d6d?w=800&q=85&auto=format&fit=crop",
+  },
+  {
+    id: 3, cat: "social",
+    name: "Putri & Reza", loc: "Yogyakarta, 2024", tag: "Social Content",
+    coverImageUrl: "https://images.unsplash.com/photo-1583939411023-14783179e581?w=800&q=85&auto=format&fit=crop",
+  },
+  {
+    id: 4, cat: "film",
+    name: "Dewi & Hendri", loc: "Jakarta, 2023", tag: "Wedding Film",
+    coverImageUrl: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=85&auto=format&fit=crop",
+  },
+  {
+    id: 5, cat: "pre",
+    name: "Nadia & Fajar", loc: "Flores, 2024", tag: "Pre-Wedding",
+    coverImageUrl: "https://images.unsplash.com/photo-1520854221256-17451cc331bf?w=1200&q=85&auto=format&fit=crop",
+  },
 ];
 
 const videoItems: PortfolioItem[] = [
-  { id: 6, cat: "video", name: "Contoh Film 1",  loc: "Our Forevows",  tag: "Wedding Film",   span: "",           bg: "#1A4A1A", accent: "#7AB87A", mediaType: "video", videoUrl: "/videos/contoh-1.mp4", coverImageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format&fit=crop" },
-  { id: 7, cat: "video", name: "Contoh Film 2",  loc: "Our Forevows",  tag: "Wedding Film",   span: "row-span-2", bg: "#2D6A2D", accent: "#C8D8C2", mediaType: "video", videoUrl: "/videos/contoh-2.mov", coverImageUrl: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=800&q=80&auto=format&fit=crop" },
-  { id: 8, cat: "video", name: "Contoh Film 3",  loc: "Our Forevows",  tag: "Pre-Wedding",    span: "",           bg: "#1A4A1A", accent: "#7AB87A", mediaType: "video", videoUrl: "/videos/contoh-3.mov", coverImageUrl: "https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?w=800&q=80&auto=format&fit=crop" },
+  {
+    id: 6, cat: "video", mediaType: "video",
+    name: "Calsa & Rafi", loc: "Bali, 2024", tag: "Wedding Film",
+    videoUrl: "/videos/contoh-1.mp4",
+    coverImageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=85&auto=format&fit=crop",
+  },
+  {
+    id: 7, cat: "video", mediaType: "video", featured: true,
+    name: "Ratih & Ilyas", loc: "Lombok, 2024", tag: "Wedding Film",
+    videoUrl: "/videos/contoh-2.mov",
+    coverImageUrl: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=1200&q=85&auto=format&fit=crop",
+  },
+  {
+    id: 8, cat: "video", mediaType: "video",
+    name: "Sri & Gigin", loc: "Yogyakarta, 2024", tag: "Pre-Wedding",
+    videoUrl: "/videos/contoh-3.mov",
+    coverImageUrl: "https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?w=800&q=85&auto=format&fit=crop",
+  },
 ];
 
 const filters: { label: string; value: Category }[] = [
-  { label: "Semua",        value: "all" },
-  { label: "Wedding Film", value: "film" },
-  { label: "Pre-Wedding",  value: "pre" },
+  { label: "Semua",          value: "all" },
+  { label: "Wedding Film",   value: "film" },
+  { label: "Pre-Wedding",    value: "pre" },
   { label: "Social Content", value: "social" },
-  { label: "Video",        value: "video" },
+  { label: "Video",          value: "video" },
 ];
 
-function PlaceholderSvg({ id, bg, accent, span }: { id: number; bg: string; accent: string; span?: string }) {
-  const wide = span === "col-span-2";
-  const viewBox = wide ? "0 0 800 300" : "0 0 400 300";
-  return (
-    <svg viewBox={viewBox} className="w-full h-full absolute inset-0" style={{ background: bg }} fill="none">
-      {id === 1 && <path d="M200 150 C180 120 150 105 145 80 C140 55 165 35 180 50 C190 58 195 75 200 80 C205 75 210 58 220 50 C235 35 260 55 255 80 C250 105 220 120 200 150Z" stroke={accent} strokeWidth="1.5" fill={accent} fillOpacity="0.12"/>}
-      {id === 2 && <><circle cx="200" cy="200" r="80" stroke={accent} strokeWidth="1.2" fill="none"/><path d="M160 150 C160 120 185 100 200 105 C215 100 240 120 240 150" stroke={accent} strokeWidth="1"/></>}
-      {id === 3 && <path d="M120 150 C120 110 150 85 185 90 C205 93 215 108 200 120 C215 108 235 103 248 115 C265 130 260 155 245 165" stroke={accent} strokeWidth="1.2" fill={accent} fillOpacity="0.1"/>}
-      {id === 4 && <><path d="M200 80 C170 95 140 120 135 150 C130 180 150 200 165 215" stroke={accent} strokeWidth="1.5"/><path d="M200 130 C178 115 160 100 168 78 C176 56 198 65 200 83" stroke={accent} strokeWidth="1"/><path d="M200 130 C222 115 240 100 232 78 C224 56 202 65 200 83" stroke={accent} strokeWidth="1"/></>}
-      {id === 5 && <><path d="M300 150 C280 120 250 105 240 80 C230 55 255 35 275 50 C285 58 290 75 300 80 C310 75 315 58 325 50 C345 35 370 55 360 80 C350 105 320 120 300 150Z" stroke={accent} strokeWidth="1.5" fill={accent} fillOpacity="0.12"/><path d="M500 150 C480 120 450 105 440 80 C430 55 455 35 475 50 C485 58 490 75 500 80 C510 75 515 58 525 50 C545 35 570 55 560 80 C550 105 520 120 500 150Z" stroke={accent} strokeWidth="1.5" fill={accent} fillOpacity="0.12"/><path d="M300 150 L500 150" stroke={accent} strokeWidth="0.8" strokeDasharray="5 5"/></>}
-    </svg>
-  );
-}
-
-function PortfolioCard({ item, onPlay }: { item: PortfolioItem; onPlay?: (item: PortfolioItem) => void }) {
+function PortfolioCard({
+  item, index, onPlay,
+}: {
+  item: PortfolioItem; index: number; onPlay?: (item: PortfolioItem) => void;
+}) {
   const { ref, inView } = useInView();
   const isVideo = item.mediaType === "video";
-  const bg = item.bg ?? "#D4DFD0";
-  const accent = item.accent ?? "#2D6A2D";
+  const isFeatured = item.featured;
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, scale: 0.97 }}
-      animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className={`group relative overflow-hidden rounded cursor-pointer ${item.span ?? ""}`}
-      style={{ minHeight: 240 }}
+      initial={{ opacity: 0, y: 24 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: (index % 3) * 0.07 }}
+      className={`group relative rounded-2xl overflow-hidden cursor-pointer
+        ${isFeatured ? "col-span-2" : "col-span-1"}`}
       onClick={() => isVideo && onPlay?.(item)}
     >
-      {/* Cover or placeholder */}
+      {/* Image */}
       {item.coverImageUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={item.coverImageUrl} alt={item.name} className="w-full h-full absolute inset-0 object-cover" />
+        <img
+          src={item.coverImageUrl}
+          alt={item.name}
+          className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+        />
       ) : (
-        <PlaceholderSvg id={item.id ?? 1} bg={bg} accent={accent} span={item.span} />
+        <div className="absolute inset-0 bg-[var(--sage)]" />
       )}
+
+      {/* Always-on gradient */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
 
       {/* Video play button */}
       {isVideo && (
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm border border-white/40 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-            <Play size={24} className="text-white ml-1" fill="white" />
+          <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm border border-white/40 flex items-center justify-center group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300">
+            <Play size={20} className="text-white ml-1" fill="white" />
           </div>
         </div>
       )}
 
-      {/* Hover overlay */}
-      <div className={`absolute inset-0 bg-gradient-to-t from-[#1A4A1A]/75 to-transparent transition-opacity duration-400 flex flex-col justify-end p-6 ${isVideo ? "opacity-60 group-hover:opacity-100" : "opacity-0 group-hover:opacity-100"}`}>
-        <span className="text-[0.62rem] tracking-[0.15em] uppercase text-white/70 mb-1">{item.tag}</span>
-        <h4 className="font-display text-2xl font-light text-white leading-tight">{item.name}</h4>
-        <p className="text-[0.72rem] text-white/65 mt-1">{item.loc}</p>
-        {isVideo && <p className="text-[0.65rem] text-white/50 mt-2 tracking-wider uppercase">Klik untuk putar ▶</p>}
+      {/* Bottom info — always visible */}
+      <div className="absolute bottom-0 left-0 right-0 p-5">
+        <span className="text-[0.6rem] tracking-[0.18em] uppercase text-white/60 mb-1 block">{item.tag}</span>
+        <h4 className="font-display text-xl font-light text-white leading-tight">{item.name}</h4>
+        <div className="flex items-center justify-between mt-1">
+          <p className="text-[0.7rem] text-white/55">{item.loc}</p>
+          {isVideo && (
+            <span className="text-[0.6rem] tracking-widest uppercase text-white/50 group-hover:text-white/80 transition-colors">Putar ▶</span>
+          )}
+        </div>
       </div>
     </motion.div>
   );
@@ -107,15 +140,21 @@ export default function Portfolio({ data }: { data?: PortfolioItem[] }) {
   const [playing, setPlaying] = useState<PortfolioItem | null>(null);
   const { ref, inView } = useInView();
 
-  const allItems: PortfolioItem[] = data && data.length > 0
-    ? data
-    : [...defaultItems, ...videoItems];
+  const allItems: PortfolioItem[] =
+    data && data.length > 0 ? data : [...defaultItems, ...videoItems];
 
   const filtered = allItems.filter(i => active === "all" || i.cat === active);
 
   return (
     <section id="portfolio" className="py-28 px-[4vw] bg-[var(--cream)]">
-      <motion.div ref={ref} initial={{ opacity: 0, y: 28 }} animate={inView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.9 }} className="max-w-6xl mx-auto">
+      <motion.div
+        ref={ref}
+        initial={{ opacity: 0, y: 28 }}
+        animate={inView ? { opacity: 1, y: 0 } : {}}
+        transition={{ duration: 0.9 }}
+        className="max-w-6xl mx-auto"
+      >
+        {/* Header */}
         <div className="mb-10">
           <p className="text-[0.72rem] tracking-[0.22em] uppercase text-[var(--green-main)] mb-3">Karya Kami</p>
           <h2 className="font-display text-[clamp(1.9rem,3.5vw,2.8rem)] font-light text-[var(--text-dark)] leading-[1.2]">
@@ -129,8 +168,10 @@ export default function Portfolio({ data }: { data?: PortfolioItem[] }) {
             <button
               key={f.value}
               onClick={() => setActive(f.value)}
-              className={`text-[0.72rem] tracking-widest uppercase px-5 py-2 rounded-full border transition-all duration-300
-                ${active === f.value ? "bg-[var(--green-main)] border-[var(--green-main)] text-white" : "border-[var(--beige)] text-[var(--text-mid)] hover:border-[var(--green-main)] hover:text-[var(--green-main)]"}`}
+              className={`text-[0.7rem] tracking-widest uppercase px-5 py-2 rounded-full border transition-all duration-300
+                ${active === f.value
+                  ? "bg-[var(--green-main)] border-[var(--green-main)] text-white"
+                  : "border-[var(--beige)] text-[var(--text-mid)] hover:border-[var(--green-main)] hover:text-[var(--green-main)]"}`}
             >
               {f.label}
             </button>
@@ -144,19 +185,21 @@ export default function Portfolio({ data }: { data?: PortfolioItem[] }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[260px] gap-3"
+            transition={{ duration: 0.35 }}
+            className="grid grid-cols-2 lg:grid-cols-3 gap-3 auto-rows-[280px] sm:auto-rows-[300px]"
           >
-            {filtered.map(item => (
+            {filtered.map((item, idx) => (
               <PortfolioCard
                 key={item._id ?? item.id}
                 item={item}
+                index={idx}
                 onPlay={setPlaying}
               />
             ))}
           </motion.div>
         </AnimatePresence>
 
+        {/* CTA */}
         <div className="text-center mt-12">
           <a
             href="#contact"
@@ -168,13 +211,8 @@ export default function Portfolio({ data }: { data?: PortfolioItem[] }) {
         </div>
       </motion.div>
 
-      {/* Video Modal */}
       {playing && (
-        <VideoModal
-          src={playing.videoUrl!}
-          title={playing.name}
-          onClose={() => setPlaying(null)}
-        />
+        <VideoModal src={playing.videoUrl!} title={playing.name} onClose={() => setPlaying(null)} />
       )}
     </section>
   );
