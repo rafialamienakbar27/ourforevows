@@ -24,7 +24,7 @@ export default function Contact({ settings }: { settings?: SiteSettings }) {
   const formRef = useRef<HTMLFormElement>(null);
   const { ref, inView } = useInView();
 
-  const wa = settings?.whatsapp ?? "+62 812 3456 7890";
+  const wa = settings?.whatsapp ?? "0882001901100";
   const email = settings?.email ?? "hello@ourforevows.com";
   const ig = settings?.instagram ?? "ourforevows";
   const waLink = `https://wa.me/${wa.replace(/\D/g, "")}`;
@@ -138,7 +138,7 @@ export default function Contact({ settings }: { settings?: SiteSettings }) {
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <Field name="email"    label="Email *"        type="email" placeholder="email@contoh.com" required />
-                  <Field name="whatsapp" label="WhatsApp *"     type="tel"   placeholder="+62 ..." required />
+                  <Field name="whatsapp" label="WhatsApp *"     type="tel"   placeholder="08 ..." required />
                 </div>
                 <div className="grid grid-cols-2 gap-3">
                   <Field name="tanggalNikah" label="Tanggal Pernikahan" type="date" />

@@ -5,7 +5,7 @@ export default defineType({
   title: 'Pengaturan Website',
   type: 'document',
   fields: [
-    defineField({ name: 'whatsapp', title: 'Nomor WhatsApp', type: 'string', description: 'Format: +62 812 3456 7890' }),
+    defineField({ name: 'whatsapp', title: 'Nomor WhatsApp', type: 'string', description: 'Format: 0882001901100' }),
     defineField({ name: 'email', title: 'Email', type: 'string' }),
     defineField({ name: 'instagram', title: 'Username Instagram', type: 'string', description: 'Tanpa @, contoh: ourforevows' }),
     defineField({ name: 'tiktok', title: 'Username TikTok', type: 'string' }),

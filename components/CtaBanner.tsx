@@ -20,7 +20,7 @@ export default function CtaBanner() {
         className="relative z-10 max-w-2xl mx-auto"
       >
         <p className="text-[0.7rem] tracking-[0.22em] uppercase text-white/60 mb-4">
-          Masih ada tanggal tersedia untuk 2025 &amp; 2026
+          Masih ada tanggal tersedia untuk 2026
         </p>
         <h2 className="font-display text-[clamp(2rem,4.5vw,3.2rem)] font-light text-white leading-[1.2] mb-5">
           Siap mengabadikan cerita cinta Anda?

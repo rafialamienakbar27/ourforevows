@@ -86,7 +86,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
 
         {/* Bottom */}
         <div className="flex flex-wrap justify-between items-center pt-6 gap-3 text-[0.73rem] font-light text-white/28">
-          <p>© 2025 Our Forevows. Dibuat dengan ♥ untuk setiap pasangan.</p>
+          <p>© 2026 Our Forevows. Dibuat dengan ♥ untuk setiap pasangan.</p>
           <p>Privasi · Syarat &amp; Ketentuan</p>
         </div>
       </div>
