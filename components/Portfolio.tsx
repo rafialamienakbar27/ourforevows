@@ -23,17 +23,17 @@ type PortfolioItem = {
 };
 
 const defaultItems: PortfolioItem[] = [
-  { id: 1, cat: "film",   name: "Rina & Dimas",  loc: "Bali, 2024",       tag: "Wedding Film",    span: "",           bg: "#D4DFD0", accent: "#2D6A2D" },
-  { id: 2, cat: "pre",    name: "Sarah & Arief", loc: "Lombok, 2024",     tag: "Pre-Wedding",     span: "row-span-2", bg: "#E0E8DB", accent: "#2D6A2D" },
-  { id: 3, cat: "social", name: "Putri & Reza",  loc: "Yogyakarta, 2024", tag: "Social Content",  span: "",           bg: "#C8D8C2", accent: "#1A4A1A" },
-  { id: 4, cat: "film",   name: "Dewi & Hendri", loc: "Jakarta, 2023",    tag: "Wedding Film",    span: "",           bg: "#BFD0B8", accent: "#2D6A2D" },
-  { id: 5, cat: "pre",    name: "Nadia & Fajar", loc: "Flores, 2024",     tag: "Pre-Wedding",     span: "col-span-2", bg: "#D4DFD0", accent: "#1A4A1A" },
+  { id: 1, cat: "film",   name: "Rina & Dimas",  loc: "Bali, 2024",       tag: "Wedding Film",    span: "",           bg: "#D4DFD0", accent: "#2D6A2D", coverImageUrl: "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=80&auto=format&fit=crop" },
+  { id: 2, cat: "pre",    name: "Sarah & Arief", loc: "Lombok, 2024",     tag: "Pre-Wedding",     span: "row-span-2", bg: "#E0E8DB", accent: "#2D6A2D", coverImageUrl: "https://images.unsplash.com/photo-1591604021695-0c69b7c05981?w=800&q=80&auto=format&fit=crop" },
+  { id: 3, cat: "social", name: "Putri & Reza",  loc: "Yogyakarta, 2024", tag: "Social Content",  span: "",           bg: "#C8D8C2", accent: "#1A4A1A", coverImageUrl: "https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=80&auto=format&fit=crop" },
+  { id: 4, cat: "film",   name: "Dewi & Hendri", loc: "Jakarta, 2023",    tag: "Wedding Film",    span: "",           bg: "#BFD0B8", accent: "#2D6A2D", coverImageUrl: "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=80&auto=format&fit=crop" },
+  { id: 5, cat: "pre",    name: "Nadia & Fajar", loc: "Flores, 2024",     tag: "Pre-Wedding",     span: "col-span-2", bg: "#D4DFD0", accent: "#1A4A1A", coverImageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1200&q=80&auto=format&fit=crop" },
 ];
 
 const videoItems: PortfolioItem[] = [
-  { id: 6, cat: "video", name: "Contoh Film 1",  loc: "Our Forevows",  tag: "Wedding Film",   span: "",           bg: "#1A4A1A", accent: "#7AB87A", mediaType: "video", videoUrl: "/videos/contoh-1.mp4" },
-  { id: 7, cat: "video", name: "Contoh Film 2",  loc: "Our Forevows",  tag: "Wedding Film",   span: "row-span-2", bg: "#2D6A2D", accent: "#C8D8C2", mediaType: "video", videoUrl: "/videos/contoh-2.mov" },
-  { id: 8, cat: "video", name: "Contoh Film 3",  loc: "Our Forevows",  tag: "Pre-Wedding",    span: "",           bg: "#1A4A1A", accent: "#7AB87A", mediaType: "video", videoUrl: "/videos/contoh-3.mov" },
+  { id: 6, cat: "video", name: "Contoh Film 1",  loc: "Our Forevows",  tag: "Wedding Film",   span: "",           bg: "#1A4A1A", accent: "#7AB87A", mediaType: "video", videoUrl: "/videos/contoh-1.mp4", coverImageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80&auto=format&fit=crop" },
+  { id: 7, cat: "video", name: "Contoh Film 2",  loc: "Our Forevows",  tag: "Wedding Film",   span: "row-span-2", bg: "#2D6A2D", accent: "#C8D8C2", mediaType: "video", videoUrl: "/videos/contoh-2.mov", coverImageUrl: "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=800&q=80&auto=format&fit=crop" },
+  { id: 8, cat: "video", name: "Contoh Film 3",  loc: "Our Forevows",  tag: "Pre-Wedding",    span: "",           bg: "#1A4A1A", accent: "#7AB87A", mediaType: "video", videoUrl: "/videos/contoh-3.mov", coverImageUrl: "https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?w=800&q=80&auto=format&fit=crop" },
 ];
 
 const filters: { label: string; value: Category }[] = [
