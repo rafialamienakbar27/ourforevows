@@ -10,82 +10,111 @@ type Service = {
   iconKey?: string;
 };
 
-const iconMap: Record<string, React.ReactNode> = {
+const icons: Record<string, React.ReactNode> = {
   film: (
-    <svg viewBox="0 0 60 60" fill="none" className="w-12 h-12">
-      <circle cx="30" cy="30" r="20" stroke="#2D6A2D" strokeWidth="1.2"/>
-      <path d="M30 15 C24 20 18 26 20 33 C22 40 28 42 30 45" stroke="#2D6A2D" strokeWidth="1"/>
-      <path d="M30 15 C36 20 42 26 40 33 C38 40 32 42 30 45" stroke="#2D6A2D" strokeWidth="1"/>
-      <circle cx="30" cy="15" r="3" fill="#2D6A2D"/>
+    <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6">
+      <circle cx="16" cy="16" r="11" stroke="currentColor" strokeWidth="1.2"/>
+      <path d="M16 8 C13 11 10 14 11 18 C12 21 14.5 22 16 24" stroke="currentColor" strokeWidth="1"/>
+      <path d="M16 8 C19 11 22 14 21 18 C20 21 17.5 22 16 24" stroke="currentColor" strokeWidth="1"/>
+      <circle cx="16" cy="8" r="2" fill="currentColor"/>
     </svg>
   ),
   camera: (
-    <svg viewBox="0 0 60 60" fill="none" className="w-12 h-12">
-      <rect x="12" y="18" width="36" height="26" rx="3" stroke="#2D6A2D" strokeWidth="1.2"/>
-      <circle cx="30" cy="31" r="7" stroke="#2D6A2D" strokeWidth="1"/>
-      <circle cx="30" cy="31" r="3" fill="#2D6A2D"/>
-      <path d="M22 18 L26 12 L34 12 L38 18" stroke="#2D6A2D" strokeWidth="1"/>
+    <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6">
+      <rect x="4" y="10" width="24" height="16" rx="2.5" stroke="currentColor" strokeWidth="1.2"/>
+      <circle cx="16" cy="18" r="4.5" stroke="currentColor" strokeWidth="1"/>
+      <circle cx="16" cy="18" r="1.5" fill="currentColor"/>
+      <path d="M11 10 L13.5 6 L18.5 6 L21 10" stroke="currentColor" strokeWidth="1"/>
     </svg>
   ),
   social: (
-    <svg viewBox="0 0 60 60" fill="none" className="w-12 h-12">
-      <rect x="10" y="10" width="18" height="18" rx="2" stroke="#2D6A2D" strokeWidth="1.2"/>
-      <rect x="32" y="10" width="18" height="18" rx="2" stroke="#2D6A2D" strokeWidth="1.2"/>
-      <rect x="10" y="32" width="18" height="18" rx="2" stroke="#2D6A2D" strokeWidth="1.2"/>
-      <rect x="32" y="32" width="18" height="18" rx="2" stroke="#2D6A2D" strokeWidth="1.2"/>
+    <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6">
+      <rect x="4" y="4" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>
+      <rect x="18" y="4" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>
+      <rect x="4" y="18" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>
+      <rect x="18" y="18" width="10" height="10" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>
     </svg>
   ),
   highlight: (
-    <svg viewBox="0 0 60 60" fill="none" className="w-12 h-12">
-      <path d="M15 45 L30 15 L45 45" stroke="#2D6A2D" strokeWidth="1.2" strokeLinejoin="round"/>
-      <path d="M19 38 L41 38" stroke="#2D6A2D" strokeWidth="1"/>
-      <circle cx="30" cy="15" r="4" stroke="#2D6A2D" strokeWidth="1"/>
+    <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6">
+      <path d="M8 26 L16 6 L24 26" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
+      <path d="M10.5 20 L21.5 20" stroke="currentColor" strokeWidth="1"/>
+      <circle cx="16" cy="6" r="2.5" stroke="currentColor" strokeWidth="1"/>
     </svg>
   ),
   intimate: (
-    <svg viewBox="0 0 60 60" fill="none" className="w-12 h-12">
-      <path d="M30 20 L35 28 L45 30 L38 38 L40 48 L30 43 L20 48 L22 38 L15 30 L25 28 Z" stroke="#2D6A2D" strokeWidth="1.2"/>
+    <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6">
+      <path d="M16 10 L18.5 15 L24 16 L20 20 L21 26 L16 23 L11 26 L12 20 L8 16 L13.5 15 Z" stroke="currentColor" strokeWidth="1.2"/>
     </svg>
   ),
   custom: (
-    <svg viewBox="0 0 60 60" fill="none" className="w-12 h-12">
-      <path d="M18 42 L30 18 L42 42" stroke="#2D6A2D" strokeWidth="1.2"/>
-      <path d="M23 35 L37 35" stroke="#2D6A2D" strokeWidth="1"/>
-      <path d="M14 48 L46 48" stroke="#2D6A2D" strokeWidth="1"/>
+    <svg viewBox="0 0 32 32" fill="none" className="w-6 h-6">
+      <path d="M9 24 L16 8 L23 24" stroke="currentColor" strokeWidth="1.2"/>
+      <path d="M11.5 19 L20.5 19" stroke="currentColor" strokeWidth="1"/>
+      <path d="M5 28 L27 28" stroke="currentColor" strokeWidth="1"/>
     </svg>
   ),
 };
 
+const nums = ["01", "02", "03", "04", "05", "06"];
+
 const defaultServices: Service[] = [
-  { title: "Wedding Film", description: "Film sinematik penuh emosi yang menceritakan keseluruhan hari istimewa Anda dalam durasi yang memukau — dari persiapan hingga momen terakhir.", iconKey: "film" },
-  { title: "Pre-Wedding Session", description: "Sesi foto dan video pra-nikah yang romantis dan natural — mengabadikan chemistry unik Anda berdua sebelum hari besar tiba.", iconKey: "camera" },
-  { title: "Social Media Content", description: "Konten pernikahan yang dirancang khusus untuk Instagram, TikTok, dan platform digital — estetis, engaging, dan siap viral.", iconKey: "social" },
-  { title: "Highlight Reel", description: "Video highlight pernikahan berdurasi 3-5 menit yang padat, emosional, dan sempurna untuk dibagikan ke keluarga dan orang-orang tersayang.", iconKey: "highlight" },
-  { title: "Intimate Coverage", badge: "Baru", description: "Layanan dokumentasi khusus untuk pernikahan intim dan akad nikah — pendekatan personal yang lebih dekat dan hangat.", iconKey: "intimate" },
-  { title: "Custom Package", description: "Paket yang dirancang sesuai kebutuhan dan impian Anda — karena setiap pernikahan adalah unik dan berhak mendapat perlakuan istimewa.", iconKey: "custom" },
+  { title: "Wedding Film",         description: "Film sinematik penuh emosi yang menceritakan keseluruhan hari istimewa Anda dalam durasi yang memukau — dari persiapan hingga momen terakhir.",              iconKey: "film" },
+  { title: "Pre-Wedding Session",  description: "Sesi foto dan video pra-nikah yang romantis dan natural — mengabadikan chemistry unik Anda berdua sebelum hari besar tiba.",                               iconKey: "camera" },
+  { title: "Social Media Content", description: "Konten pernikahan yang dirancang khusus untuk Instagram, TikTok, dan platform digital — estetis, engaging, dan siap viral.",                              iconKey: "social" },
+  { title: "Highlight Reel",       description: "Video highlight pernikahan berdurasi 3-5 menit yang padat, emosional, dan sempurna untuk dibagikan ke keluarga dan orang-orang tersayang.",               iconKey: "highlight" },
+  { title: "Intimate Coverage",    description: "Layanan dokumentasi khusus untuk pernikahan intim dan akad nikah — pendekatan personal yang lebih dekat dan hangat.",                                     iconKey: "intimate", badge: "Baru" },
+  { title: "Custom Package",       description: "Paket yang dirancang sesuai kebutuhan dan impian Anda — karena setiap pernikahan adalah unik dan berhak mendapat perlakuan istimewa.",                    iconKey: "custom" },
 ];
 
-function Card({ s, i }: { s: Service; i: number }) {
+function ServiceCard({ s, i }: { s: Service; i: number }) {
   const { ref, inView } = useInView();
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 28 }}
+      initial={{ opacity: 0, y: 32 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: (i % 3) * 0.1 }}
-      className="relative bg-[var(--sage-light)] p-10 hover:bg-white hover:shadow-lg hover:shadow-black/5 transition-all duration-300 group"
+      transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: (i % 3) * 0.08 }}
+      className="group relative bg-white rounded-2xl p-8 border border-[var(--beige)] hover:border-[var(--green-light)] hover:shadow-xl hover:shadow-[var(--green-main)]/8 transition-all duration-400 flex flex-col overflow-hidden cursor-default"
     >
+      {/* Large background number */}
+      <span className="absolute -top-3 -right-1 font-display text-[7rem] leading-none font-light text-[var(--green-main)]/[0.06] select-none pointer-events-none transition-colors duration-400 group-hover:text-[var(--green-main)]/[0.1]">
+        {nums[i]}
+      </span>
+
+      {/* Badge */}
       {s.badge && (
-        <span className="absolute top-6 right-6 bg-[var(--green-main)] text-white text-[0.62rem] tracking-widest uppercase px-3 py-1 rounded-full">
+        <span className="absolute top-6 right-6 bg-[var(--green-main)] text-white text-[0.58rem] tracking-[0.15em] uppercase px-2.5 py-1 rounded-full">
           {s.badge}
         </span>
       )}
-      <div className="mb-6">{iconMap[s.iconKey ?? ''] ?? iconMap.film}</div>
-      <h3 className="font-display text-2xl font-light text-[var(--text-dark)] mb-3">{s.title}</h3>
-      <p className="text-[0.87rem] font-light text-[var(--text-mid)] leading-[1.85] mb-6">{s.description}</p>
-      <span className="text-[0.72rem] tracking-widest uppercase text-[var(--green-main)] group-hover:tracking-[0.18em] transition-all duration-300">
-        Pelajari Lebih →
-      </span>
+
+      {/* Icon */}
+      <div className="w-11 h-11 rounded-xl bg-[var(--sage-light)] text-[var(--green-main)] flex items-center justify-center mb-6 group-hover:bg-[var(--green-main)] group-hover:text-white transition-all duration-400">
+        {icons[s.iconKey ?? "film"]}
+      </div>
+
+      {/* Number label */}
+      <p className="text-[0.62rem] tracking-[0.2em] uppercase text-[var(--text-light)] mb-2">{nums[i]}</p>
+
+      {/* Title */}
+      <h3 className="font-display text-[1.45rem] font-light text-[var(--text-dark)] mb-3 leading-snug">
+        {s.title}
+      </h3>
+
+      {/* Divider */}
+      <div className="w-8 h-px bg-[var(--green-light)] mb-4 group-hover:w-16 transition-all duration-500" />
+
+      {/* Description */}
+      <p className="text-[0.86rem] font-light text-[var(--text-mid)] leading-[1.85] flex-1">
+        {s.description}
+      </p>
+
+      {/* CTA */}
+      <div className="mt-6 flex items-center gap-1.5 text-[0.7rem] tracking-widest uppercase text-[var(--green-main)] opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-400">
+        <span>Pelajari Lebih</span>
+        <span className="text-base leading-none">→</span>
+      </div>
     </motion.div>
   );
 }
@@ -93,23 +122,31 @@ function Card({ s, i }: { s: Service; i: number }) {
 export default function Services({ data }: { data?: Service[] }) {
   const services = data && data.length > 0 ? data : defaultServices;
   const { ref, inView } = useInView();
+
   return (
     <section id="services" className="py-28 px-[4vw] bg-[var(--sage-light)]">
+      {/* Header */}
       <motion.div
         ref={ref}
         initial={{ opacity: 0, y: 28 }}
         animate={inView ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.9 }}
-        className="max-w-6xl mx-auto mb-16"
+        className="max-w-6xl mx-auto mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6"
       >
-        <p className="text-[0.72rem] tracking-[0.22em] uppercase text-[var(--green-main)] mb-3">Layanan Kami</p>
-        <h2 className="font-display text-[clamp(1.9rem,3.5vw,2.8rem)] font-light text-[var(--text-dark)] max-w-[520px] leading-[1.2]">
-          Setiap momen, diabadikan dengan penuh cinta
-        </h2>
+        <div>
+          <p className="text-[0.72rem] tracking-[0.22em] uppercase text-[var(--green-main)] mb-3">Layanan Kami</p>
+          <h2 className="font-display text-[clamp(1.9rem,3.5vw,2.8rem)] font-light text-[var(--text-dark)] max-w-[420px] leading-[1.2]">
+            Setiap momen, diabadikan dengan penuh cinta
+          </h2>
+        </div>
+        <p className="text-[0.85rem] font-light text-[var(--text-mid)] max-w-[320px] leading-[1.85] md:text-right">
+          Kami menyediakan berbagai layanan untuk mengabadikan hari istimewa Anda dengan cara yang paling berkesan.
+        </p>
       </motion.div>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 border border-[var(--beige)] divide-x divide-y divide-[var(--beige)]">
-        {services.map((s, i) => <Card key={s._id ?? i} s={s} i={i} />)}
+      {/* Grid */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {services.map((s, i) => <ServiceCard key={s._id ?? i} s={s} i={i} />)}
       </div>
     </section>
   );
