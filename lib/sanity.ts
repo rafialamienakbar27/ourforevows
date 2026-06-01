@@ -12,6 +12,17 @@ export const sanityClient = projectId
     })
   : null
 
+// Server-side client (no CDN, uses API token) — for Server Actions
+export const sanityServerClient = projectId
+  ? createClient({
+      projectId,
+      dataset,
+      apiVersion: '2024-01-01',
+      useCdn: false,
+      token: process.env.SANITY_API_TOKEN,
+    })
+  : null
+
 export async function sanityFetch<T>(query: string): Promise<T | null> {
   if (!sanityClient) return null
   try {
@@ -22,18 +33,11 @@ export async function sanityFetch<T>(query: string): Promise<T | null> {
 }
 
 export async function sanityFetchFresh<T>(query: string, params?: Record<string, unknown>): Promise<T | null> {
-  if (!projectId) return null
+  if (!sanityServerClient) return null
   try {
-    const { createClient: cc } = await import('@sanity/client')
-    const client = cc({
-      projectId,
-      dataset,
-      apiVersion: '2024-01-01',
-      useCdn: false,
-      token: process.env.SANITY_API_TOKEN,
-    })
-    return await client.fetch<T>(query, params ?? {})
-  } catch {
+    return await sanityServerClient.fetch<T>(query, params ?? {})
+  } catch (err) {
+    console.error('[sanityFetchFresh] error:', err)
     return null
   }
 }

@@ -1,5 +1,7 @@
 'use server'
 
+import { sanityFetchFresh } from '@/lib/sanity'
+
 export type BookingState = {
   success: boolean;
   error?: string;
@@ -43,7 +45,6 @@ export async function submitBooking(
     let affiliate: AffiliateResult | null = null
     if (data.kodeReferral) {
       try {
-        const { sanityFetchFresh } = await import('@/lib/sanity')
         affiliate = await sanityFetchFresh<AffiliateResult>(
           `*[_type == "affiliate" && isActive != false && code == $code][0] {
             _id, name, code, email, whatsapp, commissionRate
