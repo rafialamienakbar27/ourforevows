@@ -48,27 +48,25 @@ export default function About({ data }: { data?: AboutData }) {
         {/* Image collage */}
         <Reveal>
           <div className="relative h-[520px] md:h-[580px]">
-            <div className="absolute top-0 left-0 w-3/4 h-[88%] bg-[var(--sage)] rounded overflow-hidden">
-              <svg viewBox="0 0 400 500" className="w-full h-full" fill="none">
-                <rect width="400" height="500" fill="#D4DFD0"/>
-                <path d="M200 400 C160 370 110 350 100 310 C90 270 130 240 150 200 C170 160 180 110 200 80 C220 110 230 160 250 200 C270 240 310 270 300 310 C290 350 240 370 200 400Z" stroke="#2D6A2D" strokeWidth="1.5" fill="#2D6A2D" fillOpacity="0.08"/>
-                <path d="M200 350 C175 330 145 315 140 285 C135 255 160 235 175 210" stroke="#2D6A2D" strokeWidth="1"/>
-                <path d="M200 350 C225 330 255 315 260 285 C265 255 240 235 225 210" stroke="#2D6A2D" strokeWidth="1"/>
-                <circle cx="200" cy="80" r="15" stroke="#2D6A2D" strokeWidth="1.5" fill="none"/>
-                <circle cx="140" cy="200" r="10" stroke="#2D6A2D" strokeWidth="1"/>
-                <circle cx="260" cy="195" r="12" stroke="#2D6A2D" strokeWidth="1"/>
-                <text x="200" y="460" textAnchor="middle" fontFamily="Cormorant Garamond" fontSize="13" fill="#2D6A2D" opacity="0.5">Our Forevows</text>
-              </svg>
+            {/* Main photo */}
+            <div className="absolute top-0 left-0 w-3/4 h-[88%] rounded overflow-hidden">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=900&q=85&auto=format&fit=crop"
+                alt="Wedding couple"
+                className="w-full h-full object-cover object-center"
+              />
+              {/* Subtle green tint overlay */}
+              <div className="absolute inset-0 bg-[var(--green-deep)]/10" />
             </div>
-            <div className="absolute bottom-0 right-0 w-[47%] h-[54%] bg-[var(--sage-light)] rounded overflow-hidden border-[6px] border-[var(--cream)]">
-              <svg viewBox="0 0 250 300" className="w-full h-full" fill="none">
-                <rect width="250" height="300" fill="#E0E8DB"/>
-                <path d="M125 50 C105 90 70 110 65 145 C60 180 90 200 110 225 C130 250 125 270 125 290" stroke="#2D6A2D" strokeWidth="1.2"/>
-                <path d="M125 160 C100 145 78 125 88 100 C98 75 122 88 125 108" stroke="#2D6A2D" strokeWidth="1"/>
-                <path d="M125 160 C150 145 172 125 162 100 C152 75 128 88 125 108" stroke="#2D6A2D" strokeWidth="1"/>
-                <circle cx="95" cy="210" r="8" stroke="#2D6A2D" strokeWidth="1"/>
-                <circle cx="160" cy="205" r="6" stroke="#2D6A2D" strokeWidth="1"/>
-              </svg>
+            {/* Accent photo */}
+            <div className="absolute bottom-0 right-0 w-[47%] h-[54%] rounded overflow-hidden border-[6px] border-[var(--cream)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://images.unsplash.com/photo-1537907510278-bf0e41e2cc40?w=600&q=85&auto=format&fit=crop"
+                alt="Wedding detail"
+                className="w-full h-full object-cover object-center"
+              />
             </div>
           </div>
         </Reveal>
