@@ -25,7 +25,13 @@ export async function sanityFetchFresh<T>(query: string, params?: Record<string,
   if (!projectId) return null
   try {
     const { createClient: cc } = await import('@sanity/client')
-    const client = cc({ projectId, dataset, apiVersion: '2024-01-01', useCdn: false })
+    const client = cc({
+      projectId,
+      dataset,
+      apiVersion: '2024-01-01',
+      useCdn: false,
+      token: process.env.SANITY_API_TOKEN,
+    })
     return await client.fetch<T>(query, params ?? {})
   } catch {
     return null
