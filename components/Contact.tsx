@@ -1,7 +1,13 @@
 "use client";
 import { useActionState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Phone, Mail, Instagram } from "lucide-react";
+import { Phone, Mail } from "lucide-react";
+
+const IgIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-[15px] h-[15px]">
+    <rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+  </svg>
+);
 import { useInView } from "./useInView";
 import { submitBooking } from "@/app/actions";
 
@@ -65,7 +71,7 @@ export default function Contact({ settings }: { settings?: SiteSettings }) {
             {[
               { icon: <Phone size={15} />, text: wa, href: waLink },
               { icon: <Mail size={15} />, text: email, href: `mailto:${email}` },
-              { icon: <Instagram size={15} />, text: `@${ig.replace("@", "")}`, href: `https://instagram.com/${ig.replace("@","")}` },
+              { icon: <IgIcon />, text: `@${ig.replace("@", "")}`, href: `https://instagram.com/${ig.replace("@","")}` },
             ].map((item, i) => (
               <a key={i} href={item.href} target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-3.5 text-[0.85rem] text-white/60 hover:text-white transition-colors duration-300 group">
