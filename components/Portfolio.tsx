@@ -20,6 +20,11 @@ type PortfolioItem = {
   coverImageUrl?: string;
 };
 
+function ytThumb(url: string): string {
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/);
+  return match ? `https://img.youtube.com/vi/${match[1]}/hqdefault.jpg` : "";
+}
+
 const videoItems: PortfolioItem[] = [
   {
     id: 1,
@@ -29,8 +34,6 @@ const videoItems: PortfolioItem[] = [
     loc: "Bandung, 2023",
     tag: "Proposal",
     videoUrl: "https://www.youtube.com/watch?v=6Qel_dGFdPM",
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=85&auto=format&fit=crop",
   },
   {
     id: 2,
@@ -40,19 +43,15 @@ const videoItems: PortfolioItem[] = [
     loc: "Bandung, 2025",
     tag: "Wedding",
     videoUrl: "https://www.youtube.com/shorts/ij0Us7VB4KU",
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=1200&q=85&auto=format&fit=crop",
   },
   {
     id: 3,
     cat: "wedding",
     mediaType: "video",
     name: "Risa & Aldy",
-    loc: "Bandung, 2026",
+    loc: "Kabupaten Bandung Barat, 2026",
     tag: "Wedding",
     videoUrl: "https://www.youtube.com/shorts/HlpIT1omKXI",
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=85&auto=format&fit=crop",
   },
   {
     id: 4,
@@ -62,8 +61,6 @@ const videoItems: PortfolioItem[] = [
     loc: "Bandung, 2026",
     tag: "Wedding",
     videoUrl: "https://www.youtube.com/shorts/rJBdZTgKno0",
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=85&auto=format&fit=crop",
   },
   {
     id: 5,
@@ -73,8 +70,6 @@ const videoItems: PortfolioItem[] = [
     loc: "Bandung, 2026",
     tag: "Wedding",
     videoUrl: "https://www.youtube.com/shorts/Uk4Honoq-ig",
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=85&auto=format&fit=crop",
   },
   {
     id: 6,
@@ -84,8 +79,6 @@ const videoItems: PortfolioItem[] = [
     loc: "Bandung, 2026",
     tag: "Wedding",
     videoUrl: "https://www.youtube.com/watch?v=WCVe5PDkLgs",
-    coverImageUrl:
-      "https://images.unsplash.com/photo-1525772764200-be829a350797?w=800&q=85&auto=format&fit=crop",
   },
 ];
 
@@ -108,6 +101,7 @@ function PortfolioCard({
 }) {
   const { ref, inView } = useInView();
   const isVideo = item.mediaType === "video";
+  const thumb = item.coverImageUrl ?? (item.videoUrl ? ytThumb(item.videoUrl) : "");
 
   return (
     <motion.div
@@ -123,10 +117,10 @@ function PortfolioCard({
       onClick={() => isVideo && onPlay?.(item)}
     >
       {/* Image */}
-      {item.coverImageUrl ? (
+      {thumb ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
-          src={item.coverImageUrl}
+          src={thumb}
           alt={item.name}
           className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
