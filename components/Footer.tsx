@@ -95,7 +95,9 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
                   <li key={l.label}>
                     <a
                       href={l.href}
-                      {...(l.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      {...(l.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                       className={`text-[0.84rem] font-light transition-colors ${
                         l.label === "Book Us"
                           ? "text-[var(--green-light)] hover:text-white"
@@ -131,7 +133,7 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
 
         {/* Bottom */}
         <div className="flex flex-wrap justify-between items-center pt-6 gap-3 text-[0.73rem] font-light text-white/28">
-          <p>© 2026 Our Forevows. Dibuat dengan ♥ untuk setiap pasangan.</p>
+          <p>© 2026 Our Forevows.</p>
           <p>Privasi · Syarat &amp; Ketentuan</p>
         </div>
       </div>
