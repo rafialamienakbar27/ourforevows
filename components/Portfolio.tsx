@@ -28,7 +28,7 @@ const videoItems: PortfolioItem[] = [
     name: "Calsa & Rafi",
     loc: "Bandung, 2023",
     tag: "Proposal",
-    videoUrl: "/videos/contoh-1.mp4",
+    videoUrl: "https://res.cloudinary.com/dszjcxg3y/video/upload/v1781071717/contoh-1_hu6rra.mp4",
     coverImageUrl:
       "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=85&auto=format&fit=crop",
   },
@@ -40,7 +40,7 @@ const videoItems: PortfolioItem[] = [
     name: "Ratih & Ilyas",
     loc: "Bandung, 2025",
     tag: "Wedding",
-    videoUrl: "/videos/contoh-3.mp4",
+    videoUrl: "https://res.cloudinary.com/dszjcxg3y/video/upload/v1781072188/contoh-3_dm4mdk.mp4",
     coverImageUrl:
       "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=1200&q=85&auto=format&fit=crop",
   },
@@ -51,7 +51,7 @@ const videoItems: PortfolioItem[] = [
     name: "Sri & Gigin",
     loc: "Bandung, 2025",
     tag: "Wedding",
-    videoUrl: "/videos/contoh-2.mp4",
+    videoUrl: "https://res.cloudinary.com/dszjcxg3y/video/upload/v1781071835/contoh-2_p8yvqk.mp4",
     coverImageUrl:
       "https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?w=800&q=85&auto=format&fit=crop",
   },
