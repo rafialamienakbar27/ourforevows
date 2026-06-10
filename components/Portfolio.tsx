@@ -26,7 +26,7 @@ const videoItems: PortfolioItem[] = [
     cat: "proposal",
     mediaType: "video",
     name: "Calsa & Rafi",
-    loc: "Bali, 2024",
+    loc: "Bandung, 2023",
     tag: "Proposal",
     videoUrl: "/videos/contoh-1.mp4",
     coverImageUrl:
@@ -38,9 +38,9 @@ const videoItems: PortfolioItem[] = [
     mediaType: "video",
     featured: true,
     name: "Ratih & Ilyas",
-    loc: "Lombok, 2024",
+    loc: "Bandung, 2025",
     tag: "Wedding",
-    videoUrl: "/videos/contoh-2.mov",
+    videoUrl: "/videos/contoh-3.mp4",
     coverImageUrl:
       "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=1200&q=85&auto=format&fit=crop",
   },
@@ -49,9 +49,9 @@ const videoItems: PortfolioItem[] = [
     cat: "wedding",
     mediaType: "video",
     name: "Sri & Gigin",
-    loc: "Yogyakarta, 2024",
+    loc: "Bandung, 2025",
     tag: "Wedding",
-    videoUrl: "/videos/contoh-3.mov",
+    videoUrl: "/videos/contoh-2.mp4",
     coverImageUrl:
       "https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?w=800&q=85&auto=format&fit=crop",
   },
@@ -76,7 +76,6 @@ function PortfolioCard({
 }) {
   const { ref, inView } = useInView();
   const isVideo = item.mediaType === "video";
-  const isFeatured = item.featured;
 
   return (
     <motion.div
