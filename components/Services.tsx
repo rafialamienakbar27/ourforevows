@@ -143,7 +143,6 @@ const defaultServices: Service[] = [
     description:
       "Bukan cuma wedding — wisuda, ulang tahun kampus, gathering brand, atau event apapun yang punya momen seru. Kami hadir dan abadikan semuanya jadi konten yang siap posting.",
     iconKey: "custom",
-    badge: "Baru",
   },
 ];
 
