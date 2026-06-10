@@ -19,6 +19,11 @@ function getYouTubeId(url: string): string | null {
   return match ? match[1] : null;
 }
 
+function getGDriveId(url: string): string | null {
+  const match = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+  return match ? match[1] : null;
+}
+
 export default function VideoModal({ src, title, onClose }: Props) {
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
@@ -34,6 +39,7 @@ export default function VideoModal({ src, title, onClose }: Props) {
 
   const vimeoId = getVimeoId(src);
   const youtubeId = getYouTubeId(src);
+  const gdriveId = getGDriveId(src);
 
   return (
     <AnimatePresence>
@@ -76,6 +82,13 @@ export default function VideoModal({ src, title, onClose }: Props) {
                 src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
                 className="w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+              />
+            ) : gdriveId ? (
+              <iframe
+                src={`https://drive.google.com/file/d/${gdriveId}/preview`}
+                className="w-full h-full"
+                allow="autoplay; fullscreen"
                 allowFullScreen
               />
             ) : vimeoId ? (

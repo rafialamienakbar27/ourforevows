@@ -60,7 +60,8 @@ const videoItems: PortfolioItem[] = [
     name: "Kania & Aji",
     loc: "Bandung, 2026",
     tag: "Wedding",
-    videoUrl: "https://www.youtube.com/shorts/rJBdZTgKno0",
+    videoUrl: "https://drive.google.com/file/d/1Bls9XbgXNikVIQCBdP4NOSnHMPxe8Cft/view",
+    coverImageUrl: "/kania-aji.png",
   },
   {
     id: 5,
