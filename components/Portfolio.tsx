@@ -23,11 +23,11 @@ type PortfolioItem = {
 const videoItems: PortfolioItem[] = [
   {
     id: 6,
-    cat: "wedding",
+    cat: "proposal",
     mediaType: "video",
     name: "Calsa & Rafi",
     loc: "Bali, 2024",
-    tag: "Wedding",
+    tag: "Proposal",
     videoUrl: "/videos/contoh-1.mp4",
     coverImageUrl:
       "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=85&auto=format&fit=crop",
