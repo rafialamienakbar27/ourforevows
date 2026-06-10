@@ -76,19 +76,24 @@ export default function VideoModal({ src, title, onClose }: Props) {
           </div>
 
           {/* Player */}
+          {gdriveId ? (
+            <div className="flex justify-center">
+              <div className="rounded overflow-hidden bg-black w-full max-w-sm" style={{ aspectRatio: "9/16", maxHeight: "75vh" }}>
+                <iframe
+                  src={`https://drive.google.com/file/d/${gdriveId}/preview`}
+                  className="w-full h-full"
+                  allow="autoplay; fullscreen"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          ) : (
           <div className="w-full rounded overflow-hidden bg-black aspect-video" style={{ maxHeight: "75vh" }}>
             {youtubeId ? (
               <iframe
                 src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
                 className="w-full h-full"
                 allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-              />
-            ) : gdriveId ? (
-              <iframe
-                src={`https://drive.google.com/file/d/${gdriveId}/preview`}
-                className="w-full h-full"
-                allow="autoplay; fullscreen"
                 allowFullScreen
               />
             ) : vimeoId ? (
@@ -107,6 +112,7 @@ export default function VideoModal({ src, title, onClose }: Props) {
               />
             )}
           </div>
+          )}
         </motion.div>
       </motion.div>
     </AnimatePresence>

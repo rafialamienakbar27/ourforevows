@@ -34,6 +34,7 @@ const videoItems: PortfolioItem[] = [
     loc: "Bandung, 2023",
     tag: "Proposal",
     videoUrl: "https://www.youtube.com/watch?v=6Qel_dGFdPM",
+    coverImageUrl: "/calsa-rafi.png",
   },
   {
     id: 2,
@@ -43,6 +44,7 @@ const videoItems: PortfolioItem[] = [
     loc: "Bandung, 2025",
     tag: "Wedding",
     videoUrl: "https://www.youtube.com/shorts/ij0Us7VB4KU",
+    coverImageUrl: "/ratih-ilyas.png",
   },
   {
     id: 3,
@@ -52,6 +54,7 @@ const videoItems: PortfolioItem[] = [
     loc: "Kabupaten Bandung Barat, 2026",
     tag: "Wedding",
     videoUrl: "https://www.youtube.com/shorts/HlpIT1omKXI",
+    coverImageUrl: "/risa-aldy.png",
   },
   {
     id: 4,
@@ -71,6 +74,7 @@ const videoItems: PortfolioItem[] = [
     loc: "Bandung, 2026",
     tag: "Wedding",
     videoUrl: "https://www.youtube.com/shorts/Uk4Honoq-ig",
+    coverImageUrl: "/aulia-rifky.png",
   },
   {
     id: 6,
@@ -80,6 +84,7 @@ const videoItems: PortfolioItem[] = [
     loc: "Bandung, 2026",
     tag: "Wedding",
     videoUrl: "https://www.youtube.com/watch?v=WCVe5PDkLgs",
+    coverImageUrl: "/dinda-rizky.png",
   },
 ];
 
