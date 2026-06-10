@@ -22,49 +22,70 @@ type PortfolioItem = {
 
 const videoItems: PortfolioItem[] = [
   {
-    id: 6,
+    id: 1,
     cat: "proposal",
     mediaType: "video",
     name: "Calsa & Rafi",
     loc: "Bandung, 2023",
     tag: "Proposal",
-    videoUrl: "https://res.cloudinary.com/dszjcxg3y/video/upload/v1781071717/contoh-1_hu6rra.mp4",
+    videoUrl: "https://www.youtube.com/watch?v=6Qel_dGFdPM",
     coverImageUrl:
       "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=85&auto=format&fit=crop",
   },
   {
-    id: 7,
+    id: 2,
     cat: "wedding",
     mediaType: "video",
-    featured: true,
     name: "Ratih & Ilyas",
     loc: "Bandung, 2025",
     tag: "Wedding",
-    videoUrl: "https://res.cloudinary.com/dszjcxg3y/video/upload/v1781072188/contoh-3_dm4mdk.mp4",
+    videoUrl: "https://www.youtube.com/shorts/ij0Us7VB4KU",
     coverImageUrl:
       "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=1200&q=85&auto=format&fit=crop",
   },
   {
-    id: 9,
+    id: 3,
     cat: "wedding",
     mediaType: "video",
     name: "Risa & Aldy",
     loc: "Bandung, 2026",
     tag: "Wedding",
-    videoUrl: "https://res.cloudinary.com/dszjcxg3y/video/upload/v1781073471/risa_adi_xbxgtv.mp4",
+    videoUrl: "https://www.youtube.com/shorts/HlpIT1omKXI",
     coverImageUrl:
       "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=85&auto=format&fit=crop",
   },
   {
-    id: 8,
+    id: 4,
     cat: "wedding",
     mediaType: "video",
-    name: "Sri & Gigin",
-    loc: "Bandung, 2025",
+    name: "Kania & Aji",
+    loc: "Bandung, 2026",
     tag: "Wedding",
-    videoUrl: "https://res.cloudinary.com/dszjcxg3y/video/upload/v1781071835/contoh-2_p8yvqk.mp4",
+    videoUrl: "https://www.youtube.com/shorts/rJBdZTgKno0",
     coverImageUrl:
-      "https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?w=800&q=85&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=85&auto=format&fit=crop",
+  },
+  {
+    id: 5,
+    cat: "wedding",
+    mediaType: "video",
+    name: "Aulia & Rifky",
+    loc: "Bandung, 2026",
+    tag: "Wedding",
+    videoUrl: "https://www.youtube.com/shorts/Uk4Honoq-ig",
+    coverImageUrl:
+      "https://images.unsplash.com/photo-1591604466107-ec97de577aff?w=800&q=85&auto=format&fit=crop",
+  },
+  {
+    id: 6,
+    cat: "wedding",
+    mediaType: "video",
+    name: "Dinda & Rizky",
+    loc: "Bandung, 2026",
+    tag: "Wedding",
+    videoUrl: "https://www.youtube.com/watch?v=WCVe5PDkLgs",
+    coverImageUrl:
+      "https://images.unsplash.com/photo-1525772764200-be829a350797?w=800&q=85&auto=format&fit=crop",
   },
 ];
 

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 
@@ -9,9 +9,17 @@ type Props = {
   onClose: () => void;
 };
 
-export default function VideoModal({ src, title, onClose }: Props) {
-  const videoRef = useRef<HTMLVideoElement>(null);
+function getVimeoId(url: string): string | null {
+  const match = url.match(/vimeo\.com\/(\d+)/);
+  return match ? match[1] : null;
+}
 
+function getYouTubeId(url: string): string | null {
+  const match = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([a-zA-Z0-9_-]{11})/);
+  return match ? match[1] : null;
+}
+
+export default function VideoModal({ src, title, onClose }: Props) {
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
@@ -23,6 +31,9 @@ export default function VideoModal({ src, title, onClose }: Props) {
       document.body.style.overflow = "";
     };
   }, [onClose]);
+
+  const vimeoId = getVimeoId(src);
+  const youtubeId = getYouTubeId(src);
 
   return (
     <AnimatePresence>
@@ -40,12 +51,14 @@ export default function VideoModal({ src, title, onClose }: Props) {
           exit={{ scale: 0.95, opacity: 0 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className="relative w-full max-w-4xl"
-          onClick={e => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
           <div className="flex items-center justify-between mb-3">
             {title && (
-              <p className="font-display text-lg font-light text-white/80 italic">{title}</p>
+              <p className="font-display text-lg font-light text-white/80 italic">
+                {title}
+              </p>
             )}
             <button
               onClick={onClose}
@@ -56,15 +69,31 @@ export default function VideoModal({ src, title, onClose }: Props) {
             </button>
           </div>
 
-          {/* Video */}
-          <video
-            ref={videoRef}
-            src={src}
-            controls
-            autoPlay
-            className="w-full rounded aspect-video bg-black"
-            style={{ maxHeight: "75vh" }}
-          />
+          {/* Player */}
+          <div className="w-full rounded overflow-hidden bg-black aspect-video" style={{ maxHeight: "75vh" }}>
+            {youtubeId ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1`}
+                className="w-full h-full"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+              />
+            ) : vimeoId ? (
+              <iframe
+                src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+                className="w-full h-full"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+              />
+            ) : (
+              <video
+                src={src}
+                controls
+                autoPlay
+                className="w-full h-full"
+              />
+            )}
+          </div>
         </motion.div>
       </motion.div>
     </AnimatePresence>
