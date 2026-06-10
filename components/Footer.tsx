@@ -11,7 +11,7 @@ const WA_LINK = "https://wa.me/62882001901100";
 
 const footerLinks = {
   Layanan: ["Proposal", "Birthday", "Wedding", "All Event"],
-  "Area Liputan": ["Bandung", "KBB", "Cimahi", "Sumedang"],
+  "Area Liputan": ["Bandung", "Kabupaten Bandung", "Cimahi", "Sumedang"],
 };
 
 const navLinks = [

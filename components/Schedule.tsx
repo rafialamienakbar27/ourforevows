@@ -72,8 +72,8 @@ const schedules: ScheduleItem[] = [
     month: "Juni",
     monthShort: "JUN",
     year: 2026,
-    event: "Risa & Ady",
-    location: "Cipatat, KBB",
+    event: "Risa & Aldy",
+    location: "Cipatat, Kabupaten Bandung Barat",
     type: "wedding",
     status: "completed",
   },
@@ -121,7 +121,7 @@ const schedules: ScheduleItem[] = [
     monthShort: "SEP",
     year: 2026,
     event: "Misa & Dena",
-    location: "Batujajar, KBB",
+    location: "Batujajar, Kabupaten Bandung Barat",
     type: "wedding",
     status: "booked",
   },
@@ -148,8 +148,22 @@ const grouped = schedules.reduce<Record<string, ScheduleItem[]>>(
 
 const months = Object.keys(grouped);
 
+function getDefaultMonth(): string {
+  const now = new Date();
+  const currentKey = `${now.toLocaleString("id-ID", { month: "long" })} ${now.getFullYear()}`;
+  // Capitalize first letter to match month names in data (e.g. "Juni 2026")
+  const normalized = currentKey.charAt(0).toUpperCase() + currentKey.slice(1);
+  if (months.includes(normalized)) return normalized;
+  // Fall back to nearest upcoming month
+  const upcoming = months.find((m) => {
+    const s = grouped[m]?.[0];
+    return s && (s.year > now.getFullYear() || (s.year === now.getFullYear() && new Date(s.date).getMonth() >= now.getMonth()));
+  });
+  return upcoming ?? months[0];
+}
+
 export default function Schedule() {
-  const [active, setActive] = useState(months[0]);
+  const [active, setActive] = useState(getDefaultMonth);
   const items = grouped[active] ?? [];
 
   return (
