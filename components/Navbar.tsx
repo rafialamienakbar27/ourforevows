@@ -59,20 +59,13 @@ export default function Navbar() {
           }`}
       >
         {/* Logo */}
-        <button
-          onClick={() => handleNav("#hero", "anchor")}
-          className="font-display text-2xl flex items-baseline gap-1"
-        >
-          <span
-            className={`font-medium transition-colors duration-500 ${atTop ? "text-white" : "text-[var(--text-dark)]"}`}
-          >
-            Our
-          </span>
-          <span
-            className={`italic font-light transition-colors duration-500 ${atTop ? "text-[var(--green-light)]" : "text-[var(--green-main)]"}`}
-          >
-            Forevows
-          </span>
+        <button onClick={() => handleNav("#hero", "anchor")}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={atTop ? "/logo-light.png" : "/logo.png"}
+            alt="Our Forevows"
+            className={`w-auto object-contain transition-all duration-500 ${scrolled ? "h-12" : "h-14"}`}
+          />
         </button>
 
         {/* Desktop links */}

@@ -135,13 +135,13 @@ const defaultServices: Service[] = [
   {
     title: "Wedding",
     description:
-      "Film sinematik penuh emosi yang menceritakan keseluruhan hari istimewa Anda — dari persiapan hingga momen terakhir yang paling berharga.",
+      "Dari persiapan sampai resepsi, kami abadikan semua momen candid yang biasanya terlewat — tawa, tangis serta haru, semua jadi konten yang bisa kamu simpan dan posting.",
     iconKey: "film",
   },
   {
     title: "All Event",
     description:
-      "Liputan profesional untuk berbagai acara — school event, brand activation, university gathering, dan semua momen kolektif yang layak dirayakan.",
+      "Bukan cuma wedding — wisuda, ulang tahun kampus, gathering brand, atau event apapun yang punya momen seru. Kami hadir dan abadikan semuanya jadi konten yang siap posting.",
     iconKey: "custom",
     badge: "Baru",
   },
@@ -195,12 +195,6 @@ function ServiceCard({ s, i }: { s: Service; i: number }) {
       <p className="text-[0.86rem] font-light text-[var(--text-mid)] leading-[1.85] flex-1">
         {s.description}
       </p>
-
-      {/* CTA */}
-      <div className="mt-6 flex items-center gap-1.5 text-[0.7rem] tracking-widest uppercase text-[var(--green-main)] opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-400">
-        <span>Pelajari Lebih</span>
-        <span className="text-base leading-none">→</span>
-      </div>
     </motion.div>
   );
 }

@@ -46,11 +46,11 @@ const videoItems: PortfolioItem[] = [
   },
   {
     id: 8,
-    cat: "proposal",
+    cat: "wedding",
     mediaType: "video",
     name: "Sri & Gigin",
     loc: "Yogyakarta, 2024",
-    tag: "Proposal",
+    tag: "Wedding",
     videoUrl: "/videos/contoh-3.mov",
     coverImageUrl:
       "https://images.unsplash.com/photo-1502635385003-ee1e6a1a742d?w=800&q=85&auto=format&fit=crop",

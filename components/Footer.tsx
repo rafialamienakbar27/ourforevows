@@ -34,12 +34,12 @@ export default function Footer({ settings }: { settings?: SiteSettings }) {
         <div className="grid md:grid-cols-[1.2fr_2fr] gap-16 pb-16 border-b border-white/10">
           {/* Brand */}
           <div>
-            <div className="font-display text-3xl mb-4 flex gap-1">
-              <span className="font-medium">Our</span>
-              <em className="italic font-light text-[var(--green-light)]">
-                Forevows
-              </em>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo-light.png"
+              alt="Our Forevows"
+              className="h-12 w-auto object-contain mb-4"
+            />
             <p className="text-[0.85rem] font-light text-white/50 leading-[1.85] mb-6 max-w-[280px]">
               Lebih dari sekadar dokumentasi, kami menciptakan cerita visual
               yang menangkap esensi setiap momen, emosi, dan perayaan yang
