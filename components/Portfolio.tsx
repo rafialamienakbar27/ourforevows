@@ -45,6 +45,17 @@ const videoItems: PortfolioItem[] = [
       "https://images.unsplash.com/photo-1545232979-8bf68ee9b1af?w=1200&q=85&auto=format&fit=crop",
   },
   {
+    id: 9,
+    cat: "wedding",
+    mediaType: "video",
+    name: "Risa & Aldy",
+    loc: "Bandung, 2026",
+    tag: "Wedding",
+    videoUrl: "https://res.cloudinary.com/dszjcxg3y/video/upload/v1781073471/risa_adi_xbxgtv.mp4",
+    coverImageUrl:
+      "https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=85&auto=format&fit=crop",
+  },
+  {
     id: 8,
     cat: "wedding",
     mediaType: "video",
