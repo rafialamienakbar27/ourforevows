@@ -73,19 +73,19 @@ export default function Hero() {
 
         <div className="font-display font-light leading-[1.08] tracking-tight text-white mb-8" style={{ fontSize: "clamp(3rem, 7vw, 6rem)" }}>
           <FadeUp delay={0.4}>
-            <span className="block">Every vow,</span>
+            <span className="block">Every Moment,</span>
           </FadeUp>
           <FadeUp delay={0.55}>
-            <span className="block italic text-[var(--green-light)]">every glance,</span>
+            <span className="block italic text-[var(--green-light)]">Every Story,</span>
           </FadeUp>
           <FadeUp delay={0.7}>
-            <span className="block">forever yours.</span>
+            <span className="block">Forever Captured.</span>
           </FadeUp>
         </div>
 
         <FadeUp delay={0.9}>
           <p className="text-white/70 font-light leading-relaxed max-w-lg mx-auto mb-10" style={{ fontSize: "clamp(0.9rem, 2vw, 1rem)" }}>
-            Kami mengabadikan kisah cinta Anda menjadi konten visual yang indah, autentik, dan tak terlupakan — untuk momen yang hanya terjadi satu kali seumur hidup.
+            Lebih dari sekadar dokumentasi, kami menciptakan cerita visual yang menangkap esensi setiap momen, emosi, dan perayaan yang berarti.
           </p>
         </FadeUp>
 

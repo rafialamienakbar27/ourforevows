@@ -1,4 +1,4 @@
-const items = ["Wedding Films", "Pre-Wedding", "Highlight Reels", "Social Content", "Intimate Coverage", "Cinematic Story"];
+const items = ["Proposal", "Birthday", "Wedding", "All Event"];
 
 export default function Marquee() {
   const doubled = [...items, ...items];
