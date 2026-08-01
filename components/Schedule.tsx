@@ -11,14 +11,23 @@ type ScheduleItem = {
   monthShort: string;
   year: number;
   event: string;
-  location: string;
-  type: "akad" | "wedding" | "reception" | "prewedding" | "package" | "lamaran";
+  location?: string;
+  collab?: string;
+  team?: string;
+  type:
+    | "akad"
+    | "wedding"
+    | "reception"
+    | "prewedding"
+    | "package"
+    | "lamaran"
+    | "maternity";
   status: "booked" | "completed";
 };
 
 const schedules: ScheduleItem[] = [
   {
-    id: 0,
+    id: 1,
     date: "28 September 2025",
     day: 28,
     month: "September",
@@ -30,7 +39,7 @@ const schedules: ScheduleItem[] = [
     status: "completed",
   },
   {
-    id: 1,
+    id: 2,
     date: "6 Juni 2026",
     day: 6,
     month: "Juni",
@@ -42,7 +51,7 @@ const schedules: ScheduleItem[] = [
     status: "completed",
   },
   {
-    id: 2,
+    id: 3,
     date: "6 Juni 2026",
     day: 6,
     month: "Juni",
@@ -54,7 +63,7 @@ const schedules: ScheduleItem[] = [
     status: "completed",
   },
   {
-    id: 3,
+    id: 4,
     date: "6 Juni 2026",
     day: 6,
     month: "Juni",
@@ -66,7 +75,7 @@ const schedules: ScheduleItem[] = [
     status: "completed",
   },
   {
-    id: 4,
+    id: 5,
     date: "7 Juni 2026",
     day: 7,
     month: "Juni",
@@ -78,7 +87,7 @@ const schedules: ScheduleItem[] = [
     status: "completed",
   },
   {
-    id: 8,
+    id: 6,
     date: "14 Juni 2026",
     day: 14,
     month: "Juni",
@@ -87,10 +96,22 @@ const schedules: ScheduleItem[] = [
     event: "Wedding",
     location: "Kopi Setia Jatinangor",
     type: "wedding",
-    status: "booked",
+    status: "completed",
   },
   {
     id: 7,
+    date: "20 Juni 2026",
+    day: 20,
+    month: "Juni",
+    monthShort: "JUN",
+    year: 2026,
+    event: "Wedding",
+    collab: "Photo by Flow",
+    type: "wedding",
+    status: "completed",
+  },
+  {
+    id: 8,
     date: "21 Juni 2026",
     day: 21,
     month: "Juni",
@@ -99,10 +120,10 @@ const schedules: ScheduleItem[] = [
     event: "Fira",
     location: "Cibiuk Resto",
     type: "lamaran",
-    status: "booked",
+    status: "completed",
   },
   {
-    id: 5,
+    id: 9,
     date: "5 Juli 2026",
     day: 5,
     month: "Juli",
@@ -111,17 +132,164 @@ const schedules: ScheduleItem[] = [
     event: "Intimate Wedding",
     location: "Villa Husna, Soreang",
     type: "wedding",
+    status: "completed",
+  },
+  {
+    id: 10,
+    date: "5 Juli 2026",
+    day: 5,
+    month: "Juli",
+    monthShort: "JUL",
+    year: 2026,
+    event: "Sean & Nadya",
+    collab: "MC Bellinda & Renaldy",
+    type: "wedding",
+    status: "completed",
+  },
+  {
+    id: 11,
+    date: "12 Juli 2026",
+    day: 12,
+    month: "Juli",
+    monthShort: "JUL",
+    year: 2026,
+    event: "Kia & Salim",
+    collab: "Amertha Decor",
+    type: "lamaran",
+    status: "completed",
+  },
+  {
+    id: 12,
+    date: "26 Juli 2026",
+    day: 26,
+    month: "Juli",
+    monthShort: "JUL",
+    year: 2026,
+    event: "Sella & Guruh",
+    collab: "Parahyangan Wedding Planner",
+    type: "wedding",
+    status: "completed",
+  },
+  {
+    id: 13,
+    date: "8 Agustus 2026",
+    day: 8,
+    month: "Agustus",
+    monthShort: "AGU",
+    year: 2026,
+    event: "7 Bulanan Marina",
+    location: "Avery de Grand City",
+    type: "maternity",
     status: "booked",
   },
   {
-    id: 6,
-    date: "13 Sept 2026",
+    id: 14,
+    date: "30 Agustus 2026",
+    day: 30,
+    month: "Agustus",
+    monthShort: "AGU",
+    year: 2026,
+    event: "Afina & Bagas",
+    location: "Bojongsoang",
+    type: "wedding",
+    status: "booked",
+  },
+  {
+    id: 15,
+    date: "2 September 2026",
+    day: 2,
+    month: "September",
+    monthShort: "SEP",
+    year: 2026,
+    event: "Astri & Rusmana",
+    location: "KUA Cililin",
+    team: "Rafa",
+    type: "wedding",
+    status: "booked",
+  },
+  {
+    id: 16,
+    date: "3 September 2026",
+    day: 3,
+    month: "September",
+    monthShort: "SEP",
+    year: 2026,
+    event: "Liah & Yosafat",
+    location: "Chapel Abipraya, Bandung Barat",
+    type: "wedding",
+    status: "booked",
+  },
+  {
+    id: 17,
+    date: "13 September 2026",
     day: 13,
     month: "September",
     monthShort: "SEP",
     year: 2026,
     event: "Misa & Dena",
     location: "Batujajar, Kabupaten Bandung Barat",
+    type: "wedding",
+    status: "booked",
+  },
+  {
+    id: 18,
+    date: "18 Oktober 2026",
+    day: 18,
+    month: "Oktober",
+    monthShort: "OKT",
+    year: 2026,
+    event: "Leni & Dika",
+    location: "Kopo",
+    type: "lamaran",
+    status: "booked",
+  },
+  {
+    id: 19,
+    date: "29 November 2026",
+    day: 29,
+    month: "November",
+    monthShort: "NOV",
+    year: 2026,
+    event: "Sindi & Iman",
+    location: "SDN 3 Rancabentang",
+    type: "wedding",
+    status: "booked",
+  },
+  {
+    id: 20,
+    date: "6 Desember 2026",
+    day: 6,
+    month: "Desember",
+    monthShort: "DES",
+    year: 2026,
+    event: "Riska & Dany",
+    location: "Wisma Bungsuna Dewi, Kiaracondong",
+    type: "wedding",
+    status: "booked",
+  },
+  {
+    id: 21,
+    date: "6 Desember 2026",
+    day: 6,
+    month: "Desember",
+    monthShort: "DES",
+    year: 2026,
+    event: "Nurul & Ozi",
+    location: "GOR Perjuangan 09",
+    team: "Indah",
+    type: "wedding",
+    status: "booked",
+  },
+  {
+    id: 22,
+    date: "12 Desember 2026",
+    day: 12,
+    month: "Desember",
+    monthShort: "DES",
+    year: 2026,
+    event: "Intimate Wedding",
+    location: "Zest Sukajadi",
+    collab: "Amertha",
     type: "wedding",
     status: "booked",
   },
@@ -134,6 +302,7 @@ const typeConfig = {
   prewedding: { label: "Pre-Wedding", color: "bg-white/20 text-white" },
   package: { label: "Package", color: "bg-white/20 text-white" },
   lamaran: { label: "Lamaran", color: "bg-white/20 text-white" },
+  maternity: { label: "7 Bulanan", color: "bg-white/20 text-white" },
 };
 
 const grouped = schedules.reduce<Record<string, ScheduleItem[]>>(
@@ -315,11 +484,21 @@ export default function Schedule() {
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5 text-[0.75rem] text-white/40">
-                    <MapPin
-                      size={11}
-                      className="text-[var(--green-light)] flex-shrink-0"
-                    />
-                    <span className="truncate">{item.location}</span>
+                    {item.location && (
+                      <MapPin
+                        size={11}
+                        className="text-[var(--green-light)] flex-shrink-0"
+                      />
+                    )}
+                    <span className="truncate">
+                      {[
+                        item.location,
+                        item.collab && `Collab ${item.collab}`,
+                        item.team && `Team ${item.team}`,
+                      ]
+                        .filter(Boolean)
+                        .join(" · ")}
+                    </span>
                   </div>
                 </div>
 
