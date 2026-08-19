@@ -21,7 +21,9 @@ type ScheduleItem = {
     | "prewedding"
     | "package"
     | "lamaran"
-    | "maternity";
+    | "maternity"
+    | "gathering"
+    | "event";
   status: "booked" | "completed";
 };
 
@@ -172,6 +174,18 @@ const schedules: ScheduleItem[] = [
   },
   {
     id: 13,
+    date: "2 Agustus 2026",
+    day: 2,
+    month: "Agustus",
+    monthShort: "AGU",
+    year: 2026,
+    event: "Wedding WL",
+    location: "Rancaekek",
+    type: "wedding",
+    status: "completed",
+  },
+  {
+    id: 14,
     date: "8 Agustus 2026",
     day: 8,
     month: "Agustus",
@@ -180,10 +194,58 @@ const schedules: ScheduleItem[] = [
     event: "7 Bulanan Marina",
     location: "Avery de Grand City",
     type: "maternity",
+    status: "completed",
+  },
+  {
+    id: 15,
+    date: "15 Agustus 2026",
+    day: 15,
+    month: "Agustus",
+    monthShort: "AGU",
+    year: 2026,
+    event: "Gathering Anaktana",
+    location: "BSD Town House",
+    type: "gathering",
+    status: "completed",
+  },
+  {
+    id: 16,
+    date: "20 Agustus 2026",
+    day: 20,
+    month: "Agustus",
+    monthShort: "AGU",
+    year: 2026,
+    event: "Risma & Rifqi",
+    location: "KUA Parongpong",
+    type: "wedding",
     status: "booked",
   },
   {
-    id: 14,
+    id: 17,
+    date: "22 Agustus 2026",
+    day: 22,
+    month: "Agustus",
+    monthShort: "AGU",
+    year: 2026,
+    event: "Lamaran",
+    location: "Kedai Selasih",
+    collab: "Amertha Decor & Blissful Project",
+    type: "lamaran",
+    status: "booked",
+  },
+  {
+    id: 18,
+    date: "29 Agustus 2026",
+    day: 29,
+    month: "Agustus",
+    monthShort: "AGU",
+    year: 2026,
+    event: "Collab w/ Antik Music",
+    type: "event",
+    status: "booked",
+  },
+  {
+    id: 19,
     date: "30 Agustus 2026",
     day: 30,
     month: "Agustus",
@@ -195,7 +257,7 @@ const schedules: ScheduleItem[] = [
     status: "booked",
   },
   {
-    id: 15,
+    id: 20,
     date: "2 September 2026",
     day: 2,
     month: "September",
@@ -208,7 +270,7 @@ const schedules: ScheduleItem[] = [
     status: "booked",
   },
   {
-    id: 16,
+    id: 21,
     date: "3 September 2026",
     day: 3,
     month: "September",
@@ -220,7 +282,7 @@ const schedules: ScheduleItem[] = [
     status: "booked",
   },
   {
-    id: 17,
+    id: 22,
     date: "13 September 2026",
     day: 13,
     month: "September",
@@ -232,7 +294,7 @@ const schedules: ScheduleItem[] = [
     status: "booked",
   },
   {
-    id: 18,
+    id: 23,
     date: "18 Oktober 2026",
     day: 18,
     month: "Oktober",
@@ -244,7 +306,7 @@ const schedules: ScheduleItem[] = [
     status: "booked",
   },
   {
-    id: 19,
+    id: 24,
     date: "29 November 2026",
     day: 29,
     month: "November",
@@ -256,7 +318,7 @@ const schedules: ScheduleItem[] = [
     status: "booked",
   },
   {
-    id: 20,
+    id: 25,
     date: "6 Desember 2026",
     day: 6,
     month: "Desember",
@@ -268,7 +330,7 @@ const schedules: ScheduleItem[] = [
     status: "booked",
   },
   {
-    id: 21,
+    id: 26,
     date: "6 Desember 2026",
     day: 6,
     month: "Desember",
@@ -281,7 +343,7 @@ const schedules: ScheduleItem[] = [
     status: "booked",
   },
   {
-    id: 22,
+    id: 27,
     date: "12 Desember 2026",
     day: 12,
     month: "Desember",
@@ -289,6 +351,19 @@ const schedules: ScheduleItem[] = [
     year: 2026,
     event: "Intimate Wedding",
     location: "Zest Sukajadi",
+    collab: "Amertha",
+    type: "wedding",
+    status: "booked",
+  },
+  {
+    id: 28,
+    date: "13 Desember 2026",
+    day: 13,
+    month: "Desember",
+    monthShort: "DES",
+    year: 2026,
+    event: "Intimate Wedding",
+    location: "Parla",
     collab: "Amertha",
     type: "wedding",
     status: "booked",
@@ -303,6 +378,8 @@ const typeConfig = {
   package: { label: "Package", color: "bg-white/20 text-white" },
   lamaran: { label: "Lamaran", color: "bg-white/20 text-white" },
   maternity: { label: "7 Bulanan", color: "bg-white/20 text-white" },
+  gathering: { label: "Gathering", color: "bg-white/20 text-white" },
+  event: { label: "Event", color: "bg-white/20 text-white" },
 };
 
 const grouped = schedules.reduce<Record<string, ScheduleItem[]>>(
